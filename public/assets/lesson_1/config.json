@@ -1,0 +1,214 @@
+[
+  {
+    "type": "header",
+    "title": "Speaking club",
+    "subtitle": "English by movies",
+    "background": "../common/img/header_background.jpg"
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "../common/img/ava_Oleg_K.jpg",
+    "contentType": "host",
+    "name": "Oleg Kvashnin",
+    "location": "Ryazan, Russia",
+    "jobTitle": "Senior Software Engineer"
+  },
+  {
+    "type": "text",
+    "imageOrientation": "right",
+    "image": "../common/img/zoom_name.png",
+    "title": "A reminder",
+    "contentType": "text",
+    "content": "Please change your <strong>name</strong> to <strong>Reksoft official</strong> one according to <strong>the Brain</strong>. This will help us identify the most active participant."
+  },
+  {
+    "type": "text",
+    "imageOrientation": "right",
+    "image": "../common/zoom_avas.jpg",
+    "contentType": "bulletPoints",
+    "title": "Getting to know each other",
+    "subTitle": "Answer the questions in BreakOut Rooms (BORs):",
+    "bulletPoints": [
+      "Tell each other a bit about yourself (name, job, location etc.). Feel free to ask additional questions.",
+      "Share your own experience of learning English from movies.",
+      "Pick a role. And... action 🎬."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "right",
+    "image": "../common/img/megafon.jpg",
+    "contentType": "tiles",
+    "title": "Tips to enhance your experience",
+    "tiles": [
+      "Below, you'll find several sections with questions. You can discuss them in <strong>any</strong> order (or even skip some!)",
+      "<strong>Always</strong> finish your answer with a question to your speaking partners (ex. <i>\"And what about you?\"</i>)",
+      "Keep an eye on the <strong>timer</strong> so you have enough time to discuss the most interesting questions.",
+      "Assign one member to <strong>share the screen</strong> (This page)."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "./img/doc/lumiere_train.jpg",
+    "contentType": "numberPoints",
+    "title": "All aboard! We're getting started.",
+    "subTitle": "We have 45 minutes for this section.",
+    "numberPoints": [
+      "<b>Discussion.</b> We'll discuss the pros and cons of this learning method.",
+      "<b>Screen test.</b> A scene from an HBO TV show.",
+      "<b>Breaking down</b> some key words and expressions from the scene.",
+      "<b>Speaking assignment.</b> Role playing practice."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "./img/doc/lumiere_factory.jpg",
+    "contentType": "bulletPoints",
+    "title": "Do you watch movies without translation?",
+    "bulletPoints": [
+      "<b>+</b> if you've watched a movie or show in English in the last month",
+      "<b>-</b> if you haven't"
+    ]
+  },
+  {
+    "type": "text",
+    "contentType": "numberPoints",
+    "imageOrientation": "top",
+    "image": "./img/doc/why_with_movies.jpg",
+    "title": "Why watch films in the original?",
+    "subTitle": "Three big reasons.",
+    "numberPoints": [
+      "It's a gentle introduction to the language.",
+      "You can hear the continuous speech (the light version of <i>language immersion</i>).",
+      "You get to enjoy the original acting, story and jokes. (wordplay and double meanings)<br />instead of translation."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "./img/doc/lumiere_gardener_1.jpg",
+    "contentType": "numberPoints",
+    "title": "Challenging part",
+    "numberPoints": [
+      "The movies are not usually designed for teaching.",
+      "The plot and the speech are a constant flow.",
+      "Acting is not always natural. There's sometimes exaggerated performance and non-everyday conversations."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "./img/doc/movies_with_subtitles.jpg",
+    "contentType": "bulletPoints",
+    "title": "Do you watch movies with subtitles?",
+    "bulletPoints": [
+      "<b>R</b> if you usually use Russian subtitles",
+      "<b>E</b> if you use English subtitles",
+      "<b>N</b> for no subtitles at all"
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "left",
+    "image": "./img/doc/lumiere_gardener_2.jpg",
+    "contentType": "numberPoints",
+    "title": "How to solve the issues?",
+    "numberPoints": [
+      "Rewatch. Multiple times. Fill in the gaps with each viewing.",
+      "Eventually, start listening to those movies in the background instead of music.",
+      "Repeat new terms or phrases you've just learned out loud.",
+      "Choose content that's personally relevant to you.",
+      "Go back to movies you already know with translation — you'll make a lot of discoveries along with learning the language."
+    ]
+  },
+  {
+    "type": "text",
+    "imageOrientation": "top",
+    "images": [
+      "./img/doc/mike_judge.jpg",
+      "./img/doc/sv_poster.jpg"
+    ],
+    "contentType": "text",
+    "title": "Let's shift to practice",
+    "text": "We'll see a scene from HBO's TV series \"Silicon Valley\" about IT and startups created by Mike Judge, known for Idiocracy and Office Space.<br />He combined his own experience as an engineer in the Valley with the work of 200 consultants to create a realistic satire of the VC and software world."
+  },
+  {
+    "type": "playlist",
+    "title": "Scene from HBO's 'Silicon Valley'",
+    "playlist": [
+      {
+        "title": "RECAP",
+        "subtitle": "The highlights from s01e01 that brought us here.",
+        "src": "./video/episode1_recap.mp4"
+      },
+      {
+        "title": "SCENE",
+        "subtitle": "Young CEO meets his investor (and the reality of VC).",
+        "src": "./video/episode2_scene.mp4"
+      }
+    ]
+  },
+  {
+    "type": "clipslesson",
+    "title": "What have we learned from this?",
+    "clipslesson": {
+      "sourceVideo": "./video/episode2_scene.mp4",
+      "terms": "./terms.json"
+    }
+  },
+  {
+    "type": "text",
+    "contentType": "tiles",
+    "title": "Characters",
+    "tiles": [
+      {
+        "image": "./img/square/peter_gregory.jpg",
+        "textOrientation": "right-top",
+        "title": "Peter Gregory",
+        "subTitle": "Venture Capitalist",
+        "id": "PG",
+        "scriptTitle": "Peter G.",
+        "color": "#2D3748"
+      },
+      {
+        "image": "./img/square/richard_hendricks.jpg",
+        "textOrientation": "left-top",
+        "title": "Richard Hendricks",
+        "subTitle": "Young CEO",
+        "id": "RH",
+        "scriptTitle": "Richard H.",
+        "color": "#1E3A8A"
+      },
+      {
+        "image": "./img/square/erlich_bachman.jpg",
+        "textOrientation": "center-bottom",
+        "title": "Erlich Bachman",
+        "subTitle": "A \"wantrepreneur\"",
+        "id": "EB",
+        "scriptTitle": "Erlich B.",
+        "color": "#0F766E"
+      },
+      {
+        "image": "./img/square/monica_hall.jpg",
+        "textOrientation": "left-top",
+        "title": "Monica Hall",
+        "subTitle": "VC's employee",
+        "id": "MH",
+        "scriptTitle": "Monica H.",
+        "color": "#6B21A8"
+      }
+    ]
+  },
+  {
+    "type": "coingame",
+    "imageOrientation": "left",
+    "image": "./img/doc/as_per_the_coin.jpg"
+  },
+  {
+    "type": "dialogues",
+    "lines": "./script.txt"
+  }
+]

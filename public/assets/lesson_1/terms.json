@@ -1,0 +1,189 @@
+{
+  "sequences": [
+    {
+      "sequence": "0",
+      "start": "0:40",
+      "end": "0:43"
+    },
+    {
+      "sequence": "1",
+      "start": "0:45",
+      "end": "0:53"
+    },
+    {
+      "sequence": "2",
+      "start": "0:53",
+      "end": "1:00"
+    },
+    {
+      "sequence": "3",
+      "start": "1:02",
+      "end": "1:06"
+    },
+    {
+      "sequence": "4",
+      "start": "1:09",
+      "end": "1:15"
+    },
+    {
+      "sequence": "4.5",
+      "start": "1:13",
+      "end": "1:15"
+    },
+    {
+      "sequence": "5",
+      "start": "1:29",
+      "end": "1:38"
+    },
+    {
+      "sequence": "6",
+      "start": "2:01",
+      "end": "2:04"
+    },
+    {
+      "sequence": "7",
+      "start": "2:41",
+      "end": "2:50"
+    },
+    {
+      "sequence": "8",
+      "start": "2:54",
+      "end": "3:01"
+    },
+    {
+      "sequence": "9",
+      "start": "3:25",
+      "end": "3:28"
+    }
+  ],
+  "terms": [
+    {
+      "sequence": "0",
+      "term": "An entrepreneur (a businessman)",
+      "stillframe": "0:42",
+      "framingXOffset": 0,
+      "definition": "a person who sets up<br />a business taking on financial risks<br />in the hope of a profit"
+    },
+    {
+      "sequence": "1",
+      "term": "Residing",
+      "stillframe": "0:45",
+      "framingXOffset": 0,
+      "definition": "living or staying in a particular place,<br />often long-term"
+    },
+    {
+      "sequence": "1",
+      "term": "As per",
+      "stillframe": "0:32",
+      "framingXOffset": 0,
+      "definition": "according to what’s specified<br />(in the mentioned agreement)"
+    },
+    {
+      "sequence": "2",
+      "term": "Futon",
+      "stillframe": "0:55",
+      "framingXOffset": 0,
+      "definition": "a Japanese traditional mattress used as a bed.<br />(ironic illustration of the cheapest rental)",
+      "image": "./img/terms/futon.jpg"
+    },
+    {
+      "sequence": "3",
+      "term": "Tenants",
+      "stillframe": "1:06",
+      "framingXOffset": 0,
+      "definition": "people who rent a property for residing (a room or a futon)",
+      "image": "./img/terms/tenants.jpg"
+    },
+    {
+      "sequence": "4",
+      "term": "Cap table",
+      "stillframe": "1:08",
+      "framingXOffset": 0,
+      "definition": "(capitalization table) a document<br />showing the portioned percentages of a company:<br />shares held by founders, investors, and options.",
+      "image": "./img/terms/cap_table.jpg"
+    },
+    {
+      "sequence": "4",
+      "term": "Investment deck",
+      "stillframe": "1:08",
+      "framingXOffset": 0,
+      "definition": "a slide presentation<br />used to pitch a business to potential investors",
+      "image": "./img/terms/investment_deck.jpg"
+    },
+    {
+      "sequence": "4",
+      "term": "Business plan",
+      "stillframe": "1:08",
+      "framingXOffset": 0,
+      "definition": "a formal document<br />describing a company's goals, <br />strategies, and operational roadmap.",
+      "image": "./img/terms/business_plan.jpg"
+    },
+    {
+      "sequence": "4",
+      "term": "may have done smth<br />(emphasized)",
+      "stillframe": "1:08",
+      "framingXOffset": 0,
+      "definition": "speculations about past actions<br />(a passive-aggressive way to point out the lack of expected actions)."
+    },
+    {
+      "sequence": "5",
+      "term": "Due",
+      "stillframe": "1:30",
+      "framingXOffset": 0,
+      "definition": "expected or required at a certain time;<br />something that has a deadline"
+    },
+    {
+      "sequence": "5",
+      "term": "Course syllabus",
+      "stillframe": "1:38",
+      "framingXOffset": 0,
+      "definition": "an outline of a course,<br />listing topics, schedule, assignments,<br />grading policy and learning objectives for students",
+      "image": "./img/terms/students.jpg"
+    },
+    {
+      "sequence": "6",
+      "term": "Essential",
+      "stillframe": "2:07",
+      "framingXOffset": 0,
+      "definition": "a formal word for \"necessary\";<br />someone you can't deal without"
+    },
+    {
+      "sequence": "7",
+      "term": "Take a sip",
+      "stillframe": "2:42",
+      "framingXOffset": 0,
+      "definition": "to drink a small, single amount of a liquid"
+    },
+    {
+      "sequence": "8",
+      "term": "Airtight",
+      "stillframe": "2:56",
+      "framingXOffset": 0,
+      "definition": "a slang word for flawless or impossible to challenge<br />(originally: something sealed shut)",
+      "image": "./img/terms/airtight.jpg"
+    },
+    {
+      "sequence": "8",
+      "term": "Go‑to‑market strategy",
+      "stillframe": "2:56",
+      "framingXOffset": 0,
+      "definition": "a plan for delivering a product or service to customers<br />in its dynamics",
+      "image": "./img/terms/go_to_market.jpg"
+    },
+    {
+      "sequence": "8",
+      "term": "3‑year summary P&L",
+      "stillframe": "2:56",
+      "framingXOffset": 0,
+      "definition": "profit and loss<br />a condensed financial report showing revenues, costs and profits",
+      "image": "./img/terms/pnl.jpg"
+    },
+    {
+      "sequence": "9",
+      "term": "Good day, gentlemen.<br />(not just a goodbye)",
+      "stillframe": "3:27",
+      "framingXOffset": 0,
+      "definition": "a formal way to end an unproductive meeting,<br />implying \"this conversation is over\".<br />Very British."
+    }
+  ]
+}

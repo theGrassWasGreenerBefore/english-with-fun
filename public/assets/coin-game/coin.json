@@ -1,0 +1,26 @@
+{
+  "texture": "./coin_texture.jpg",
+  "radius": 212,
+  "coordinates": {
+    "heads": {
+      "x": 213,
+      "y": 213
+    },
+    "tails": {
+      "x": 639,
+      "y": 213
+    },
+    "edge": {
+      "x": 0,
+      "y": 426,
+      "width": 1339,
+      "height": 45
+    },
+  },
+  "sound": "./coin_flip.mp3",
+  "chrono": {
+    "throw": 0.267,
+    "land": 1.1,
+    "vibration_stop": 2.167
+  }
+}

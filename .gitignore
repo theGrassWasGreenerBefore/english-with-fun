@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+.vite/
+.parcel-cache/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# AI-agents cache
+.claude/
+.cursor/
+.opencode/
+.superpowers/
