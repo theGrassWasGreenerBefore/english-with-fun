@@ -1,0 +1,56 @@
+# ==========================================
+# .claudeignore — for AI-agents only
+# ==========================================
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+.vite/
+.parcel-cache/
+*.tsbuildinfo
+
+# Code maps & minified bundles
+*.map
+*.min.js
+*.min.css
+
+# Logs & coverage reports
+coverage/
+.nyc_output/
+*.log
+npm-debug.log*
+
+# Tooling cache
+.turbo/
+.nx/
+.eslintcache
+.stylelintcache
+
+# AI-agents configs & cache
+.claude/
+.cursor/
+.opencode/
+.superpowers/
+
+# Media files
+*.mp4
+*.mp3
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.webm
+*.webp
