@@ -17,8 +17,8 @@ Define the width of the content according to the size of the user's window. Leav
 The images should be placed according to the `imageOrientation`. The rest of the content of the section is aligned to fit the rest of the space.
 
 The tiles should be the same size within the section. If the number of the tiles is odd add a placeholder to make it even.
-If the tile's content is the text it should be aligned to the center.
-If the tile is an object then the image goes to the background and the conten is on the overlay with less opacity background. The poistion of the text is according to `textOrientation`
+The tile's content is the text it should be aligned to the center.
+In the `contentType`: `imageTiles` and content source is an object then the image goes to the background and the content is on the overlay with less opacity background (`color` is the backgruond color, you should pick the text color yourself to make it readable, stick to the known visual design practices - don't try to parse the image). The aligning of the text is according to `textOrientation`, split the string by dash: first value - horizontal, second - vertical. 
 
 Add `That's all, folks!` after the final section. A little comic and childish style but don't run the extra mile.
 
@@ -37,7 +37,7 @@ The `pause` is disabled during the `termShowed` mode.
 
 [start] → [seq0] → [seq0.term0] → ... → [seq0.termN] → [seq1] → [seq1.term0] → ... → [end]
 
-According to the nav panel all the sequences in chronological order and the terms assigned to them are lined in a row of entities we navigate with `prev`/`next`. Also there's `Let's begin!` announcement as a beginning entity (`startEdge`) and the `That's all, folks!` slide as the closing one (`endEdge`).
+According to the nav panel all the sequences in chronological order and the terms assigned to them are lined in a row of entities we navigate with `prev`/`next`. Also there's `Let's begin!` announcement as a beginning entity (`startEdge`) and the `Out of a single scene.` slide as the closing one (`endEdge`).
 
 According to `terms.json` the `term` is the title - larger font-size and bolder. `definition` is a content under the title. `image` is under the definition if it's in the term. The text is align in the center. Fit the image in the bottom of the overlay block with no proporions destruction.
 

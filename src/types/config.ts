@@ -4,7 +4,7 @@
 // as the field name for contentType: "text" sections, and "characterTiles" (not "tiles")
 // as the contentType for the "Characters" section — keep config.json in sync with these names.
 
-export type ImageOrientation = "left" | "right" | "top";
+export type ImageOrientation = "left" | "right" | "top" | "bottom";
 
 export interface HeaderSection {
   readonly type: "header";
@@ -75,7 +75,7 @@ export interface Tile {
 
 // Character-card tiles (the "Characters" section), distinct from TilesSection
 // because its tiles are objects, not strings.
-export interface CharacterTilesSection {
+export interface ImageTilesSection {
   readonly type: "text";
   readonly contentType: "characterTiles";
   readonly title: string;
@@ -88,7 +88,7 @@ export type TextSection =
   | BulletPointsSection
   | NumberPointsSection
   | TilesSection
-  | CharacterTilesSection;
+  | ImageTilesSection;
 
 export interface PlaylistItem {
   readonly title: string;
