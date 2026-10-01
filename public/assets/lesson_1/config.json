@@ -25,11 +25,12 @@
   {
     "type": "text",
     "imageOrientation": "right",
-    "image": "../common/zoom_avas.jpg",
+    "image": "../common/img/zoom_avas.jpg",
     "contentType": "bulletPoints",
     "title": "Getting to know each other",
     "subTitle": "Answer the questions in BreakOut Rooms (BORs):",
     "bulletPoints": [
+      "Pick a timekeeper. A minute per each tops",
       "Tell each other a bit about yourself (name, job, location etc.). Feel free to ask additional questions.",
       "Share your own experience of learning English from movies.",
       "Pick a role. And... action 🎬."
