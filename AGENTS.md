@@ -102,7 +102,7 @@ React wrapper. It must:
 
 The project uses 3 categories of embeddable modules:
 
-1. **Minigame** (`minigame`) — pure vanilla JS + WebGL
+1. **Minigame** (`minigame`) — vanilla (no framework) TypeScript + WebGL
    - Example: coin (cylinder, physics, shaders)
    - Skill: `/skill-minigame`
 
@@ -124,14 +124,14 @@ The project uses 3 categories of embeddable modules:
 - loading and parsing `terms.json`;
 - computing the active sequence and term by `currentTime`;
 - UI markup: navigation, volume control, overlay, term cards;
-- calling player methods (`seek`, `setVolume`, `showStillframe`).
+- calling player methods (`play`, `pause`, `setVolume`, `showStillframe`).
 
 **Vanilla player (`/skill-video-player`, headless mode) owns:**
 - the `<video>` element;
 - playback, pause, seek;
 - applying volume;
-- `showStillframe(time)` mode — pause + seek + wait for `seeked`;
-- emitting events (`timeupdate`, `play`, `pause`, `volumechange`, `ended`).
+- `showStillframe(stillframe, framingXOffset)` mode — pause + seek + wait for `seeked`;
+- emitting events (`sequenceOver`, `seeked`, `paused`, `unpaused`).
 
 **The player does not know about `terms.json` and does not decide which term is active.**
 React does not touch `<video>` directly — only via the player's API.
@@ -196,7 +196,8 @@ The project uses three skills in `.claude/commands/`:
 - `/skill-video-player` — video player with optional: controls, playlist, and API
 - `/skill-minigame` —  WebGL mini-games (currently the first game — coin)
 
-When working on a specific module, invoke the corresponding skill.
+When working on a specific module, invoke the corresponding skill. If there's a collision in requirements between AGENTS.md and the skills, the skills have the priority.
+The probable collisions between the skills should be confirmed in the thread during the development.
 
 ## 7. Important Constraints
 
