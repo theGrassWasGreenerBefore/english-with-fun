@@ -24,14 +24,14 @@ For full architecture, data formats, and contracts, read @AGENTS.md.
 
 ### Completed
 1. ✅ Asset structure description (config.json, terms.json, script.txt, gameConfig.json)
-
-### In Progress
 2. Agent and skill distribution (AGENTS.md + .claude/commands/)
 3. TypeScript interfaces for JSON based on assets
 4. Project structure formation (npm create vite + react-router)
 
-### Upcoming
+### In Progress
 5. React components (layout)
+
+### Upcoming
 6. Video player (vanilla JS)
 7. Coin mini-game (WebGL)
 8. Integration

@@ -7,7 +7,7 @@ export interface ScriptLine {
   readonly text: string;
 }
 
-// A character is the same shape as a Tile from the "characterTiles" section
-// (type: "text", contentType: "characterTiles", title: "Characters"),
+// A character is the same shape as a Tile from the "imageTiles" section
+// (type: "text", contentType: "imageTiles", title: "Characters"),
 // matched by CHARACTER_ID <-> tiles[].id.
 export type Character = Tile;

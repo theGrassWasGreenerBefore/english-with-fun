@@ -1,0 +1,15 @@
+.lessonPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 1.25rem;
+  color: #4a5568;
+  text-align: center;
+  padding: 2rem;
+}

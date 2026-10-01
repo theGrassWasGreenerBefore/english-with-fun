@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import App from './App'
-import LessonPagePlaceholder from './pages/LessonPagePlaceholder'
+import HomePage from './pages/HomePage'
+import LessonPage from './pages/LessonPage'
 
 const routes = createBrowserRouter([
   {
@@ -8,8 +9,12 @@ const routes = createBrowserRouter([
     Component: App,
     children: [
       {
+        index: true,
+        Component: HomePage,
+      },
+      {
         path: '/lesson/:id',
-        Component: LessonPagePlaceholder,
+        Component: LessonPage,
       },
     ],
   },

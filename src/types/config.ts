@@ -1,8 +1,4 @@
 // Shapes for config.json, the root per-lesson file. See AGENTS.md sections 4-5.
-//
-// NOTE on data contract: this file assumes config.json uses "text" (not "content")
-// as the field name for contentType: "text" sections, and "characterTiles" (not "tiles")
-// as the contentType for the "Characters" section — keep config.json in sync with these names.
 
 export type ImageOrientation = "left" | "right" | "top" | "bottom";
 
@@ -77,7 +73,7 @@ export interface Tile {
 // because its tiles are objects, not strings.
 export interface ImageTilesSection {
   readonly type: "text";
-  readonly contentType: "characterTiles";
+  readonly contentType: "imageTiles";
   readonly title: string;
   readonly tiles: readonly Tile[];
 }
