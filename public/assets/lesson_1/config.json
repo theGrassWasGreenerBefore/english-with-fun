@@ -203,7 +203,8 @@
     ]
   },
   {
-    "type": "coingame",
+    "type": "minigame",
+    "gameType": "coin",
     "imageOrientation": "left",
     "image": "./img/doc/as_per_the_coin.jpg"
   },
