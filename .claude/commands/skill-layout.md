@@ -18,6 +18,7 @@ The images should be placed according to the `imageOrientation`. The rest of the
 
 The tiles should be the same size within the section. If the number of the tiles is odd add a placeholder to make it even.
 If the tile's content is the text it should be aligned to the center.
+If the tile is an object then the image goes to the background and the conten is on the overlay with less opacity background. The poistion of the text is according to `textOrientation`
 
 Add `That's all, folks!` after the final section. A little comic and childish style but don't run the extra mile.
 

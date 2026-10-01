@@ -186,7 +186,7 @@ Code does not hardcode the page structure. The route `/lesson/:id` determines wh
 - **minigame/<gameType>/gameConfig.json** — configuration for the WebGL mini-game module.
 The structure is common to all `minigame` but with caveats: `texture` (sprite), `radius` (optional), `coordinates` (field names optional, in this case — heads/tails/edge, internal shared fields: `x`, `y`, optional — `width`, `height`), `sound`, `chrono` (animation timecodes synced to audio assets, in this case — coin flip).
 
-- **script.txt** —  line-by-line scene dialogue in the format `CHARACTER_ID|text`. `CHARACTER_ID` corresponds to the `id` field inside the section `type: "text"` with `contentType: "tiles"` and `title: "Characters"`. This section is rendered as a block with character cards and simultaneously serves as a reference for the Video Player module. The mapping `CHARACTER_ID ↔ tiles[].id` is established by the id field.
+- **script.txt** —  line-by-line scene dialogue in the format `CHARACTER_ID|text`. `CHARACTER_ID` corresponds to the `id` field inside the section `type: "text"` with `contentType: "imageTiles"` and `title: "Characters"`. This section is rendered as a block with character cards and simultaneously serves as a reference for the Video Player module. The mapping `CHARACTER_ID ↔ tiles[].id` is established by the id field.
 
 ## 6. AI Skills
 

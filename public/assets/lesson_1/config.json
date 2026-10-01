@@ -20,7 +20,7 @@
     "image": "../common/img/zoom_name.png",
     "title": "A reminder",
     "contentType": "text",
-    "content": "Please change your <strong>name</strong> to <strong>Reksoft official</strong> one according to <strong>the Brain</strong>. This will help us identify the most active participant."
+    "text": "Please change your <strong>name</strong> to <strong>Reksoft official</strong> one according to <strong>the Brain</strong>. This will help us identify the most active participant."
   },
   {
     "type": "text",
@@ -161,7 +161,7 @@
   },
   {
     "type": "text",
-    "contentType": "tiles",
+    "contentType": "imageTiles",
     "title": "Characters",
     "tiles": [
       {

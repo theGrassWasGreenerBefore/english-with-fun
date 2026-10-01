@@ -24,8 +24,11 @@ The tab of pictograms is pretty standard:
 The video is clickable and it triggers `pause`/`unpause`.
 
 The playlist sidebar has the items according to the `playlist` field of the section with [type=playlist] in `config.json`.
-It shouldn't have any images: simply title, the subtitle. Also the current video must be highlighted.
+It shouldn't have any images: simply title, the subtitle. Also the current video must be highlighted. Each item is a clickable block.
 The video is picked according to the `src` field.
+When the video is played through the next video triggers. Or the user can click the block and start video.
+In either way the new video starts from the begining. But the volume state stays as it was during the new video trigger.
+
 The color palletee and buttons design are up to you.
 
 ## HEADLESS CLIPSLESSON
@@ -38,7 +41,7 @@ States:
 - `paused` - the video is played, the click on the video leads to `unpaused` emitting;
 - `termShowed` - triggered externally after react wrapper sends `showStillframe(stillframe, framingXOffset)`, (within the the video seeks the stillframe according to `time`, the video image is moved left on `framingXOffset` percentage.
 Listened events:
-- `play` with the timecode - starts playing the video;
+- `play` with the timecode string - starts playing the video;
 - `pause` - pauses the video;
 - `unpause` - continues the video from the timecode it was paused;
 - `volumeChange` - payload is a number which is percentage (default is 75%).
