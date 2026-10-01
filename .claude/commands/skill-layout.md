@@ -67,6 +67,7 @@ Simplified formula for `dialogues` row parsing is `<div style="${color}: "><stro
 # STACK
 
 - React 19
+- Follow `/vercel-react-best-practices` for React patterns
 - TypeScript strict mode
 - react-router v7
 - Vite
