@@ -11,7 +11,7 @@ const DEFAULT_LESSON_ID = "lesson_1";
 function LessonPage() {
   const params = useParams();
   const lessonId = params.id ?? DEFAULT_LESSON_ID;
-  const basePath = `/assets/${lessonId}/`;
+  const basePath = `${import.meta.env.BASE_URL}assets/${lessonId}/`;
 
   const [config, setConfig] = useState<LessonConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
