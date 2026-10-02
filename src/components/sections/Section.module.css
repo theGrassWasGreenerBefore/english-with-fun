@@ -349,6 +349,20 @@
   font-size: 1.25em;
 }
 
+/* Dialogues */
+
+.dialogueList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1.5em;
+  line-height: 1.6;
+}
+
+.dialogueLine {
+  color: #2d3748;
+}
+
 .placeholderBox {
   aspect-ratio: 16 / 9;
   background: #1a202c;

@@ -67,9 +67,12 @@ The volume bar sends the `volumeChange` event with a single number payload (a pe
 
 ## DIALOGUES
 
-The `script.txt` should be parsed as `CHARACTED_ID`|`LINE`
-Simplified formula for `dialogues` row parsing is `<div style="${color}: "><strong>${firstName}:</strong> ${LINE}</div>`.
-`color` and `firstName` are based on the content of the tile item located by `section[title=Characters].id === CHARACTED_ID`.
+The `script.txt` should be parsed as `CHARACTER_ID|LINE`.
+Simplified formula for `dialogues` row parsing is `<div style="color: ${color}"><strong>${firstName}:</strong> ${LINE}</div>`.
+`color` is the matching tile's `color`. `firstName` is the first word of the matching tile's `title` (e.g. `"Peter Gregory"` → `"Peter"`) — `scriptTitle` is a separate, already-abbreviated label and is not used here.
+The tile is located by `section[title=Characters].tiles[].id === CHARACTER_ID`.
+
+The `dialogues` section has no `title`/`image` of its own, so it needs read-only access to the `Characters` section's tiles, resolved once from the full `config.json` array (not just its own section object) and passed down to the dialogues component for the `CHARACTER_ID` lookup. Since it carries no `title`, it is exempt from the hash-id/slug rule (WORKFLOW step 10) and the title scroll-in animation (WORKFLOW step 11).
 
 # STACK
 

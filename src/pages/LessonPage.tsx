@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import SectionRenderer from "../components/SectionRenderer";
 import type { LessonConfig } from "../types/config";
+import { findCharacterTiles } from "../utils/findCharacterTiles";
 import styles from "./LessonPage.module.css";
 
 const DEFAULT_LESSON_ID = "lesson_1";
@@ -47,12 +48,19 @@ function LessonPage() {
     return <div className={styles.status}>Loading lesson…</div>;
   }
 
+  const characters = findCharacterTiles(config);
+
   return (
     <>
       <ScrollProgressBar />
       <main className={styles.lessonPage}>
         {config.map((section, index) => (
-          <SectionRenderer key={`${section.type}-${index}`} section={section} basePath={basePath} />
+          <SectionRenderer
+            key={`${section.type}-${index}`}
+            section={section}
+            basePath={basePath}
+            characters={characters}
+          />
         ))}
       </main>
     </>

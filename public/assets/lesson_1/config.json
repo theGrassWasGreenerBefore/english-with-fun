@@ -2,7 +2,7 @@
   {
     "type": "header",
     "title": "Speaking club",
-    "subtitle": "English by movies",
+    "subtitle": "English with movies",
     "background": "../common/img/header_background.jpg"
   },
   {
@@ -128,10 +128,7 @@
   {
     "type": "text",
     "imageOrientation": "top",
-    "images": [
-      "./img/doc/mike_judge.jpg",
-      "./img/doc/sv_poster.jpg"
-    ],
+    "image": "./img/doc/mike_judge_poster.jpg",
     "contentType": "text",
     "title": "Let's shift to practice",
     "text": "We'll see a scene from HBO's TV series \"Silicon Valley\" about IT and startups created by Mike Judge, known for Idiocracy and Office Space.<br />He combined his own experience as an engineer in the Valley with the work of 200 consultants to create a realistic satire of the VC and software world."
@@ -210,6 +207,7 @@
     "image": "./img/as_per_the_coin.jpg"
   },
   {
+    "title": "The script",
     "type": "dialogues",
     "lines": "./script.txt"
   }
