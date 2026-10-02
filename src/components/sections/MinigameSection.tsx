@@ -23,7 +23,7 @@ function MinigameSection({ section, basePath }: MinigameSectionProps) {
   ) : undefined;
 
   const isCoin = section.gameType === "coin";
-  const gameBasePath = `/assets/minigame/${section.gameType}/`;
+  const gameBasePath = `${import.meta.env.BASE_URL}assets/minigame/${section.gameType}/`;
 
   const [config, setConfig] = useState<CoinGameConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
