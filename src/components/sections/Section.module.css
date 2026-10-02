@@ -257,6 +257,16 @@
   margin-bottom: 0.5rem;
 }
 
+/* Minigame */
+
+.coinGameMount {
+  width: 600px;
+  height: 450px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 /* Plain tiles */
 
 .tilesGrid {
@@ -374,4 +384,133 @@
   font-size: 1.5em;
   text-align: center;
   padding: 1rem;
+}
+
+/* Clips lesson */
+
+.clipslessonNav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  background: #1a2433;
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: #e2e8f0;
+}
+
+.clipslessonNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.clipslessonNavBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.clipslessonNavBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.clipslessonNavBtn:disabled:hover {
+  background: transparent;
+}
+
+.clipslessonNavBtn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+.clipslessonVolume {
+  margin-left: auto;
+  width: 7rem;
+}
+
+.clipslessonContent {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f1620;
+  overflow: hidden;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.clipslessonPlayerMount {
+  position: absolute;
+  inset: 0;
+}
+
+.clipslessonPlayerHidden {
+  display: none;
+}
+
+.clipslessonOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 53%;
+  overflow: hidden;
+  background: linear-gradient(to right, transparent, rgba(15, 22, 32, 0.92) 25%, rgba(15, 22, 32, 0.92) 100%);
+}
+
+/* Fills the overlay's full height so translateY(-20%) below resolves against
+   the video block's own height, not the (shorter) content's intrinsic height. */
+.clipslessonOverlayContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  color: #fff;
+  transform: translateY(-10%);
+}
+
+.clipslessonOverlayTitle {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.clipslessonOverlayDefinition {
+  font-size: 1.5em;
+  margin: 0;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.clipslessonOverlayImage {
+  max-width: 100%;
+  max-height: 40%;
+  object-fit: contain;
+  margin-top: 3em;
+  border-radius: 0.25rem;
+}
+
+.clipslessonEdgeSlide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #e2e8f0;
+  font-size: 1.75em;
+  font-weight: 600;
 }

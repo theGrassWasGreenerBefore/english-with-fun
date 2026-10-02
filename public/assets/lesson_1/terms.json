@@ -2,38 +2,33 @@
   "sequences": [
     {
       "id": "0",
-      "start": "0:40",
-      "end": "0:43"
+      "start": "0:40.75",
+      "end": "0:42.63"
     },
     {
       "id": "1",
       "start": "0:45",
-      "end": "0:53"
+      "end": "0:53.45"
     },
     {
       "id": "2",
-      "start": "0:53",
-      "end": "1:00"
+      "start": "0:53.6",
+      "end": "1:03.8"
     },
     {
       "id": "3",
-      "start": "1:02",
-      "end": "1:06"
+      "start": "1:04",
+      "end": "1:06.8"
     },
     {
       "id": "4",
-      "start": "1:09",
-      "end": "1:15"
-    },
-    {
-      "id": "4.5",
-      "start": "1:13",
-      "end": "1:15"
+      "start": "1:06.8",
+      "end": "1:18"
     },
     {
       "id": "5",
-      "start": "1:29",
-      "end": "1:38"
+      "start": "1:27",
+      "end": "1:38.5"
     },
     {
       "id": "6",
@@ -42,17 +37,17 @@
     },
     {
       "id": "7",
-      "start": "2:41",
-      "end": "2:50"
+      "start": "2:42",
+      "end": "2:50.3"
     },
     {
       "id": "8",
-      "start": "2:54",
-      "end": "3:01"
+      "start": "2:55",
+      "end": "3:02.3"
     },
     {
       "id": "9",
-      "start": "3:25",
+      "start": "3:25.8",
       "end": "3:28"
     }
   ],
@@ -60,28 +55,28 @@
     {
       "sequenceId": "0",
       "term": "An entrepreneur (a businessman)",
-      "stillframe": "0:42",
-      "framingXOffset": 0,
+      "stillframe": "0:42.63",
+      "framingXOffset": 40,
       "definition": "a person who sets up<br />a business taking on financial risks<br />in the hope of a profit"
     },
     {
       "sequenceId": "1",
       "term": "Residing",
-      "stillframe": "0:45",
+      "stillframe": "0:53.45",
       "framingXOffset": 0,
       "definition": "living or staying in a particular place,<br />often long-term"
     },
     {
       "sequenceId": "1",
       "term": "As per",
-      "stillframe": "0:32",
+      "stillframe": "0:53.45",
       "framingXOffset": 0,
       "definition": "according to what’s specified<br />(in the mentioned agreement)"
     },
     {
       "sequenceId": "2",
       "term": "Futon",
-      "stillframe": "0:55",
+      "stillframe": "1:04",
       "framingXOffset": 0,
       "definition": "a Japanese traditional mattress used as a bed.<br />(ironic illustration of the cheapest rental)",
       "image": "./img/terms/futon.jpg"
@@ -89,15 +84,22 @@
     {
       "sequenceId": "3",
       "term": "Tenants",
-      "stillframe": "1:06",
-      "framingXOffset": 0,
-      "definition": "people who rent a property for residing (a room or a futon)",
+      "stillframe": "1:06.8",
+      "framingXOffset": 25,
+      "definition": "people who rent a property for residing<br />(a room or a futon)",
       "image": "./img/terms/tenants.jpg"
     },
     {
       "sequenceId": "4",
+      "term": "Apportioned",
+      "stillframe": "1:15",
+      "framingXOffset": 0,
+      "definition": "distributed among parties<br />according to a share"
+    },
+    {
+      "sequenceId": "4",
       "term": "Cap table",
-      "stillframe": "1:08",
+      "stillframe": "1:15",
       "framingXOffset": 0,
       "definition": "(capitalization table) a document<br />showing the portioned percentages of a company:<br />shares held by founders, investors, and options.",
       "image": "./img/terms/cap_table.jpg"
@@ -105,7 +107,7 @@
     {
       "sequenceId": "4",
       "term": "Investment deck",
-      "stillframe": "1:08",
+      "stillframe": "1:15",
       "framingXOffset": 0,
       "definition": "a slide presentation<br />used to pitch a business to potential investors",
       "image": "./img/terms/investment_deck.jpg"
@@ -113,7 +115,7 @@
     {
       "sequenceId": "4",
       "term": "Business plan",
-      "stillframe": "1:08",
+      "stillframe": "1:15",
       "framingXOffset": 0,
       "definition": "a formal document<br />describing a company's goals, <br />strategies, and operational roadmap.",
       "image": "./img/terms/business_plan.jpg"
@@ -121,22 +123,22 @@
     {
       "sequenceId": "4",
       "term": "may have done smth<br />(emphasized)",
-      "stillframe": "1:08",
+      "stillframe": "1:15",
       "framingXOffset": 0,
-      "definition": "speculations about past actions<br />(a passive-aggressive way to point out the lack of expected actions)."
+      "definition": "speculations about past actions<br />(a passive-aggressive way to point out<br />the lack of expected actions)."
     },
     {
       "sequenceId": "5",
       "term": "Due",
-      "stillframe": "1:30",
-      "framingXOffset": 0,
+      "stillframe": "1:38.5",
+      "framingXOffset": 25,
       "definition": "expected or required at a certain time;<br />something that has a deadline"
     },
     {
       "sequenceId": "5",
       "term": "Course syllabus",
-      "stillframe": "1:38",
-      "framingXOffset": 0,
+      "stillframe": "1:38.5",
+      "framingXOffset": 25,
       "definition": "an outline of a course,<br />listing topics, schedule, assignments,<br />grading policy and learning objectives for students",
       "image": "./img/terms/students.jpg"
     },
@@ -150,14 +152,14 @@
     {
       "sequenceId": "7",
       "term": "Take a sip",
-      "stillframe": "2:42",
-      "framingXOffset": 0,
+      "stillframe": "2:43",
+      "framingXOffset": 30,
       "definition": "to drink a small, single amount of a liquid"
     },
     {
       "sequenceId": "8",
       "term": "Airtight",
-      "stillframe": "2:56",
+      "stillframe": "3:02.3",
       "framingXOffset": 0,
       "definition": "a slang word for flawless or impossible to challenge<br />(originally: something sealed shut)",
       "image": "./img/terms/airtight.jpg"
@@ -165,7 +167,7 @@
     {
       "sequenceId": "8",
       "term": "Go‑to‑market strategy",
-      "stillframe": "2:56",
+      "stillframe": "3:02.3",
       "framingXOffset": 0,
       "definition": "a plan for delivering a product or service to customers<br />in its dynamics",
       "image": "./img/terms/go_to_market.jpg"
@@ -173,7 +175,7 @@
     {
       "sequenceId": "8",
       "term": "3‑year summary P&L",
-      "stillframe": "2:56",
+      "stillframe": "3:02.3",
       "framingXOffset": 0,
       "definition": "profit and loss<br />a condensed financial report showing revenues, costs and profits",
       "image": "./img/terms/pnl.jpg"

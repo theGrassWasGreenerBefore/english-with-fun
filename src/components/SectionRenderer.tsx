@@ -20,9 +20,9 @@ function SectionRenderer({ section, basePath, characters }: SectionRendererProps
     case "text":
       return <TextSection section={section} basePath={basePath} />;
     case "playlist":
-      return <PlaylistSection section={section} />;
+      return <PlaylistSection section={section} basePath={basePath} />;
     case "clipslesson":
-      return <ClipsLessonSection section={section} />;
+      return <ClipsLessonSection section={section} basePath={basePath} />;
     case "minigame":
       return <MinigameSection section={section} basePath={basePath} />;
     case "dialogues":

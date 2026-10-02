@@ -24,33 +24,6 @@
   },
   {
     "type": "text",
-    "imageOrientation": "right",
-    "image": "../common/img/zoom_avas.jpg",
-    "contentType": "bulletPoints",
-    "title": "Getting to know each other",
-    "subTitle": "Answer the questions in BreakOut Rooms (BORs):",
-    "bulletPoints": [
-      "Pick a timekeeper. A minute per each tops",
-      "Tell each other a bit about yourself (name, job, location etc.). Feel free to ask additional questions.",
-      "Share your own experience of learning English from movies.",
-      "Pick a role. And... action 🎬."
-    ]
-  },
-  {
-    "type": "text",
-    "imageOrientation": "right",
-    "image": "../common/img/megafon.jpg",
-    "contentType": "tiles",
-    "title": "Tips to enhance your experience",
-    "tiles": [
-      "Below, you'll find several sections with questions. You can discuss them in <b>any</b> order (or even skip some!)",
-      "<strong>Always</strong> finish your answer with a question to your speaking partners (ex. <i>\"And what about you?\"</i>)",
-      "Keep an eye on the <strong>timer</strong> so you have enough time to discuss the most interesting questions.",
-      "Assign one member to <strong>share the screen</strong> (This page)."
-    ]
-  },
-  {
-    "type": "text",
     "imageOrientation": "left",
     "image": "./img/doc/lumiere_train.jpg",
     "contentType": "numberPoints",
@@ -145,7 +118,7 @@
       {
         "title": "SCENE",
         "subtitle": "Young CEO meets his investor (and the reality of VC).",
-        "src": "./video/episode2_scene.mp4"
+        "src": "./video/episode2_scene_compressed.mp4"
       }
     ]
   },
@@ -153,7 +126,7 @@
     "type": "clipslesson",
     "title": "What have we learned from this?",
     "clipslesson": {
-      "sourceVideo": "./video/episode2_scene.mp4",
+      "sourceVideo": "./video/episode2_scene_compressed.mp4",
       "terms": "./terms.json"
     }
   },
@@ -205,6 +178,20 @@
     "gameType": "coin",
     "imageOrientation": "left",
     "image": "./img/as_per_the_coin.jpg"
+  },
+  {
+    "type": "text",
+    "imageOrientation": "right",
+    "image": "../common/img/zoom_avas.jpg",
+    "contentType": "bulletPoints",
+    "title": "Acting class!",
+    "subTitle": "Answer the questions in BreakOut Rooms (BORs):",
+    "bulletPoints": [
+      "Pick a timekeeper. A minute per each tops",
+      "Tell each other a bit about yourself (name, job, location etc.). Feel free to ask additional questions.",
+      "Share your own experience of learning English from movies.",
+      "Pick a role. And... action 🎬."
+    ]
   },
   {
     "title": "The script",

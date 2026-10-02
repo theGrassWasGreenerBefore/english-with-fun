@@ -51,6 +51,29 @@ function LessonPage() {
   const characters = findCharacterTiles(config);
 
   return (
+    <LessonContent config={config} basePath={basePath} characters={characters} />
+  );
+}
+
+function LessonContent({
+  config,
+  basePath,
+  characters,
+}: {
+  config: LessonConfig;
+  basePath: string;
+  characters: ReturnType<typeof findCharacterTiles>;
+}) {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(hash)?.scrollIntoView();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  return (
     <>
       <ScrollProgressBar />
       <main className={styles.lessonPage}>

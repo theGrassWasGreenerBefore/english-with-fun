@@ -41,7 +41,7 @@ States:
 - `paused` - the video is played, the click on the video leads to `unpaused` emitting;
 - `termShowed` - triggered externally after react wrapper sends `showStillframe(stillframe, framingXOffset)`, (within the the video seeks the stillframe according to `time`, the video image is moved left on `framingXOffset` percentage.
 Listened events:
-- `play` with the timecode string - starts playing the video;
+- `play` with the start timecode and an optional stop-at timecode - starts playing the video; the stop-at value is an opaque boundary (React passes the active sequence's end), the player watches for it via `timeupdate` and treats it only as "where to stop", never as a "sequence";
 - `pause` - pauses the video;
 - `unpause` - continues the video from the timecode it was paused;
 - `volumeChange` - payload is a number which is percentage (default is 75%).
@@ -68,7 +68,7 @@ Accepted timecodes: "1:15", "1:15.234" (milliseconds after the dot).
 - Implement the player as an embeddable vanilla module following @AGENTS.md section 4.
 - Support two modes: simple playlist mode for `playlist` sections and headless mode for `clipslesson`.
 - Own the `<video>` element completely: create it, configure it, attach listeners, control playback, and remove it during cleanup.
-- Expose a code-only API for integration, at minimum: `seek`, `setVolume`, `showStillframe`, and `setPause`.
+- Expose a code-only API for integration, at minimum: `play(time, stopAt?)`, `pause()`, `unpause()`, `setVolume(percent)`, and `showStillframe(stillframe, framingXOffset)`. Seeking is an internal detail of `play`/`showStillframe`, not a separate public method; pause/unpause are two explicit methods, not one combined toggle.
 - Emit events needed by React and playlist UI, including time updates, play, pause, volume changes, and ended events; see @AGENTS.md section 4.
 - Implement `showStillframe(stillframe, framingXOffset)` as pause, seek, wait for `seeked`, then remain paused at that frame.
 - Keep playlist UI minimal and local to simple mode: source selection, navigation, and basic playback controls as required by config.
@@ -110,10 +110,10 @@ Accepted timecodes: "1:15", "1:15.234" (milliseconds after the dot).
 5. Implement shared video-element creation, source assignment, event wiring, and cleanup first.
 6. Implement headless mode without UI beyond the video surface required by the container.
 7. Implement playlist mode as a thin layer over the same player core, adding only config-driven navigation and controls.
-8. Implement `seek` with clear behavior around pending seeks and invalid times.
+8. Implement seeking as part of `play`/`showStillframe`, guarding the case where the target time equals the current time (no real seek occurs, so the native `seeked` event never fires) with a small epsilon check.
 9. Implement `setVolume` by clamping to the valid media volume range and emitting or forwarding volume changes.
-10. Implement `setPause` as an explicit pause/play command that handles rejected play promises safely.
-11. Implement `showStillframe` by pausing, seeking, waiting for `seeked`, and resolving when the frame is ready.
+10. Implement `pause()`/`unpause()` as explicit, state-guarded commands (act only from the matching current state) that handle rejected play promises safely and emit `paused`/`unpaused`.
+11. Implement `showStillframe` by pausing, seeking, and emitting `seeked` once the frame is ready — fire-and-forget, not Promise-based (matches the void command types in `terms.ts`).
 12. Ensure event listeners are registered in one place and removed in `destroy()`.
 13. Ensure repeated `init` after `destroy` works on the same instance, because React StrictMode can mount twice in development.
 14. Avoid preloading or probing files for existence; rely on browser media loading behavior.

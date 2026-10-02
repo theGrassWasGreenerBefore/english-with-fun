@@ -146,7 +146,7 @@ Skills must know where to get the config for each section type:
 | `minigame` | `gameType` | `minigame/<gameType>/gameConfig.json` | `"gameType": "coin"` → `minigame/coin/gameConfig.json` |
 | `dialogues` | `lines` | path to script file | `"lines": "./script.txt"` |
 | `playlist` | `playlist[].src` | array of video paths | `"src": "./video/episode1_recap.mp4"` |
-| `clipslesson` | `clipslesson.sourceVideo` | path to video | `"sourceVideo": "./video/episode2_scene.mp4"` |
+| `clipslesson` | `clipslesson.sourceVideo` | path to video | `"sourceVideo": "./video/episode2_scene_compressed.mp4"` |
 | `clipslesson` | `clipslesson.terms` | path to terms.json | `"terms": "./terms.json"` |
 
 **Rule:** paths in JSON are relative (`./...` or `../common/...`).

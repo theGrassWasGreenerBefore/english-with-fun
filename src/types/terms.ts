@@ -23,4 +23,6 @@ export interface TermsData {
 // Vanilla player API commands invoked by the React layer (headless mode).
 // See AGENTS.md section 4, "Division of Responsibility in clipslesson".
 export type ShowStillframe = (stillframe: string, framingXOffset: number) => void;
-export type Play = (time: string) => void;
+// `stopAt` is an opaque timecode boundary (React passes `sequence.end`); the player
+// watches for it and emits `sequenceOver` without knowing what a "sequence" is.
+export type Play = (time: string, stopAt?: string) => void;

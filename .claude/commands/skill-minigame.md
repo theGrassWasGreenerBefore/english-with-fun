@@ -13,6 +13,12 @@ Mini-games are configured from JSON under `public/assets/minigame/<gameType>/gam
 ## COIN GAME
 
 The game is a top-down view of a coin. The form texture is based on `gameConfig.json`.
+
+Texture coordinate convention (learned the hard way — get this right the first time):
+- `heads`/`tails` entries have no `width`/`height`: their `x`/`y` are the CENTER of a circle of radius `radius` (from the image's top-left origin), and the sampled square is the full diameter (`radius * 2`), not `radius` itself.
+- `edge` has explicit `width`/`height`: there, `x`/`y` is a conventional top-left corner, unrelated to `radius`.
+- `texImage2D` without `UNPACK_FLIP_Y_WEBGL` uploads row 0 = image's top row, so a naive quad renders upside down. Fix orientation ONCE, globally (e.g. flip the V component in the vertex shader), not inside the per-rect pixel→UV math — entangling the two makes both the crop region and the orientation wrong simultaneously.
+
 The states of the game:
 - `still` - the whole area is clickable, the style is `cursor: pointer`, the click triggers `pending` state;
 - `pending` - the audio is triggered, the animation is triggered according to `chrono`, when `vibration_stop` reached we go back to `still` state.

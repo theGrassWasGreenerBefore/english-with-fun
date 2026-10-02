@@ -1,0 +1,15 @@
+.mg-coin {
+  width: 100%;
+  height: 100%;
+}
+
+.mg-coin__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.mg-coin__canvas--busy {
+  cursor: default;
+}

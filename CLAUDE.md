@@ -30,8 +30,8 @@ For full architecture, data formats, and contracts, read @AGENTS.md.
 
 ### In Progress
 5. React components (layout)
+6. Video player (vanilla JS)
 
 ### Upcoming
-6. Video player (vanilla JS)
 7. Coin mini-game (WebGL)
 8. Integration
