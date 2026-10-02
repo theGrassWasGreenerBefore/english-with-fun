@@ -3,21 +3,26 @@ import App from './App'
 import HomePage from './pages/HomePage'
 import LessonPage from './pages/LessonPage'
 
-const routes = createBrowserRouter([
+const routes = createBrowserRouter(
+  [
+    {
+      path: '/',
+      Component: App,
+      children: [
+        {
+          index: true,
+          Component: HomePage,
+        },
+        {
+          path: '/lesson/:id',
+          Component: LessonPage,
+        },
+      ],
+    },
+  ],
   {
-    path: '/',
-    Component: App,
-    children: [
-      {
-        index: true,
-        Component: HomePage,
-      },
-      {
-        path: '/lesson/:id',
-        Component: LessonPage,
-      },
-    ],
-  },
-])
+    basename: '/english-with-fun'
+  }
+)
 
 export default routes
