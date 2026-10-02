@@ -1,29 +1,59 @@
 .section {
   width: 100%;
+  /* Mirrors sectionTitleWrap's bottom gap (0.2em padding * 4em title font-size). */
+  margin-top: 0.8em;
   padding: 3rem 1.5rem;
   box-sizing: border-box;
 }
 
 .sectionInner {
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
+.sectionTitleWrap {
+  position: relative;
+  display: inline-block;
+  font-size: 4em;
+  --title-bg-pad: 0.2em;
+  margin-bottom: calc(3 * var(--title-bg-pad));
+}
+
+.sectionTitleBg {
+  position: absolute;
+  top: calc(-1 * var(--title-bg-pad));
+  bottom: calc(-1 * var(--title-bg-pad));
+  right: calc(-4 * var(--title-bg-pad));
+  left: -100vw;
+  background: #dde6f0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .sectionTitle {
-  font-size: 1.75rem;
+  position: relative;
+  z-index: 1;
+  font-size: 1em;
   font-weight: 700;
-  margin: 0 0 0.75rem;
-  color: #1a202c;
+  margin: 0 0 1.25rem;
+  color: #263852;
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sectionTitleWrap.revealed .sectionTitle {
+  transform: translateX(0);
 }
 
 .subTitle {
-  font-size: 1.1rem;
+  font-size: 1.5em;
   font-weight: 500;
   margin: 0 0 1rem;
   color: #4a5568;
 }
 
 .sectionText {
+  font-size: 1.5em;
   line-height: 1.6;
   color: #2d3748;
 }
@@ -45,18 +75,72 @@
   padding: 2.5rem 3rem;
   border-radius: 0.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerTitleWrap {
+  position: relative;
+  font-size: 7em;
+  --title-bg-pad: 0.4em;
+  margin-bottom: var(--title-bg-pad);
+}
+
+.headerTitleBg {
+  position: absolute;
+  top: calc(-1 * var(--title-bg-pad));
+  bottom: calc(-1 * var(--title-bg-pad));
+  right: calc(-1 * var(--title-bg-pad));
+  left: -100vw;
+  background: rgba(255, 255, 255, 0.18);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .headerTitle {
+  position: relative;
+  z-index: 1;
   color: #fff;
-  font-size: 2.5rem;
-  margin: 0 0 0.5rem;
+  font-size: 1em;
+  margin: 0;
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.headerTitleWrap.revealed .headerTitle {
+  transform: translateX(0);
+}
+
+.headerSubtitleWrap {
+  position: relative;
+  font-size: 5em;
+  --title-bg-pad: 0.4em;
+}
+
+.headerSubtitleBg {
+  position: absolute;
+  top: calc(-1 * var(--title-bg-pad));
+  bottom: calc(-1 * var(--title-bg-pad));
+  right: calc(-1 * var(--title-bg-pad));
+  left: -100vw;
+  background: rgba(255, 255, 255, 0.18);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .headerSubtitle {
+  position: relative;
+  z-index: 1;
   color: #e2e8f0;
-  font-size: 1.25rem;
+  font-size: 1em;
   margin: 0;
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.headerSubtitleWrap.revealed .headerSubtitle {
+  transform: translateX(0);
 }
 
 /* Image + content layout, keyed by imageOrientation */
@@ -86,6 +170,17 @@
 .sectionImageWrap {
   flex: 1 1 0;
   min-width: 0;
+}
+
+.sectionImageWrap img {
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+}
+
+.sectionImageWrap.revealed img {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .sectionContent {
@@ -128,18 +223,20 @@
 }
 
 .hostName {
-  font-size: 1.4rem;
+  font-size: 1.75em;
   font-weight: 700;
   margin: 0;
   color: #1a202c;
 }
 
 .hostJobTitle {
+  font-size: 1.5em;
   margin: 0;
   color: #4a5568;
 }
 
 .hostLocation {
+  font-size: 1.5em;
   margin: 0;
   color: #718096;
   font-style: italic;
@@ -149,6 +246,7 @@
 
 .bulletList,
 .numberList {
+  font-size: 1.5em;
   padding-left: 1.5rem;
   line-height: 1.6;
   color: #2d3748;
@@ -171,11 +269,10 @@
   background: #f7fafc;
   border-radius: 0.5rem;
   padding: 1.25rem;
+  font-size: 1.5em;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #2d3748;
+  aspect-ratio: 1 / 1;
 }
 
 .tilePlaceholder {
@@ -191,9 +288,15 @@
   gap: 1rem;
 }
 
+/* Higher specificity than .tilesGrid/.imageTilesGrid so it always wins regardless of source order. */
+.tilesGrid.squareBlock,
+.imageTilesGrid.squareBlock {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .imageTile {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
   border-radius: 0.5rem;
@@ -237,41 +340,15 @@
 
 .imageTileTitle {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5em;
   margin: 0;
 }
 
 .imageTileSubtitle {
   margin: 0.25rem 0 0;
-  font-size: 0.9rem;
+  font-size: 1.25em;
 }
 
-/* Playlist */
-
-.playlist {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.playlistItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.playlistItemTitle {
-  font-weight: 700;
-  margin: 0;
-  color: #1a202c;
-}
-
-.playlistItemSubtitle {
-  margin: 0;
-  color: #4a5568;
-}
-
-.videoPlaceholder,
 .placeholderBox {
   aspect-ratio: 16 / 9;
   background: #1a202c;
@@ -280,6 +357,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  font-size: 1.5em;
   text-align: center;
   padding: 1rem;
 }

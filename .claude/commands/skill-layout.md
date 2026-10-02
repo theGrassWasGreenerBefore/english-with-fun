@@ -12,13 +12,20 @@ React owns the page layout and user interface. Vanilla modules own their interna
 
 ## COMMON
 
-Define the width of the content according to the size of the user's window. Leave some space on left and right sides placing the content in the middle.
+Define the width of the content according to the size of the user's window. Leave some space on left and right sides placing the content in the middle. The content column max-width is `1280px`.
+
+The base font-size of regular content (body text, lists, tiles, host/playlist text, etc.) is `24px`. Headings and titles scale up from that baseline to keep visual hierarchy, they are not pinned to 24px.
+
+Each section's title (`<h2>`) sits above the whole section, full width, before the image/content row — never beside the image or inside the content column.
 
 The images should be placed according to the `imageOrientation`. The rest of the content of the section is aligned to fit the rest of the space.
 
+Sections may carry optional string fields `fontSize`, `imageWidth`, `imageHeight`. When present, `fontSize` overrides the section's base font-size (set it on the section's outer wrapper using `em` elsewhere in that section's CSS so descendants scale with it), and `imageWidth`/`imageHeight` override the size of the section's `image`. When any of these fields are absent, fall back to the existing default sizing — do not require them.
+
 The tiles should be the same size within the section. If the number of the tiles is odd add a placeholder to make it even.
+Tiles (`tiles` and `imageTiles`) are square (`aspect-ratio: 1 / 1`). When a section has exactly 4 tiles, lay them out as a 2×2 square block in reading order (`1 2 / 3 4`) instead of a single row/wrap.
 The tile's content is the text it should be aligned to the center.
-In the `contentType`: `imageTiles` and content source is an object then the image goes to the background and the content is on the overlay with less opacity background (`color` is the backgruond color, you should pick the text color yourself to make it readable, stick to the known visual design practices - don't try to parse the image). The aligning of the text is according to `textOrientation`, split the string by dash: first value - horizontal, second - vertical. 
+In the `contentType`: `imageTiles` and content source is an object then the image goes to the background and the content is on the overlay with less opacity background (`color` is the backgruond color, you should pick the text color yourself to make it readable, stick to the known visual design practices - don't try to parse the image). The overlay is a gradient from `color` (opaque) fading to transparent, in the direction opposite of `textOrientation`, so the image stays visible on the side away from the text rather than being flatly dimmed everywhere. The aligning of the text is according to `textOrientation`, split the string by dash: first value - horizontal, second - vertical. 
 
 Add `That's all, folks!` after the final section. A little comic and childish style but don't run the extra mile.
 
@@ -122,13 +129,13 @@ Simplified formula for `dialogues` row parsing is `<div style="${color}: "><stro
 7. Build a section renderer that dispatches by `section.type` and preserves source array order.
 8. Use the best practice of color pallete combinations for that design of your choice.
 9. Common field `title` has the same style within the lesson at least.
-10. Each section's header has the unique HTML id for hash link, the value is based on its `title` value with "unique slug generation". It should not be random since the link is to be shared.
-11. The titles appear with animated eased sliding when the user reaches them by scrolling (Scroll-triggered animations - MS Sway style).
-12. The media data (images, video, minigame) appear with animation scaling and sliding when the user reaches them by scrolling (Scroll-triggered animations - MS Sway style).
+10. Each section's header has the unique HTML id for hash link, the value is based on its `title` value with "unique slug generation". It should not be random since the link is to be shared. As soon as a section is scrolled into view (any part visible, not only scrolled-to-top), update the URL hash to that section's id via `history.replaceState` (no new history entries, no jump/scroll side effects).
+11. The title text itself (not a background decoration) slides in with eased animation as soon as its section first becomes visible in the viewport (Scroll-triggered animations - MS Sway style). Any background panel behind the title (e.g. one that bleeds off a screen edge) stays static; only the text moves.
+12. The media data (images, video, minigame) appear with animation scaling and sliding when the user reaches them by scrolling (Scroll-triggered animations - MS Sway style), triggered on the same "first becomes visible" basis as above.
 13. Implement static React sections first (`header`, `text`, tiles/cards) before mixed sections.
 14. Each section is a non-floated block. There can't be several sections or titles in a row on the same top position of the document.
 15. When all media content is loaded and the complete heights of the document is clear add the fixed scroll-progress-bar at the top - several px high. Fill it on user scroll. Colors are up to you.
-16. For `playlist` and `minigame`, the React wrapper renders only a container `<div>`. The vanilla module creates its own `<video>` or `<canvas>` inside it. React never creates those elements.
+16. For `playlist` and `minigame`, the React wrapper renders only a container `<div>`. The vanilla module creates its own `<video>` or `<canvas>` inside it. React never creates those elements. Until that module exists, render a single simple placeholder box for the whole section (same as `clipslesson`'s placeholder) — do not build out the `playlist`/`minigame` item list or UI from JSON ahead of time; that is `skill-video-player`/`skill-minigame`'s job.
 17. For `clipslesson`, render the React UI and connect to the headless video player through public methods and emitted events.
 18. Add user-facing loading/error states for async config loading and embeddable module initialization.
 19. Keep styling local and consistent with the current app structure; avoid adding external UI systems.

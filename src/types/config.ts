@@ -2,14 +2,27 @@
 
 export type ImageOrientation = "left" | "right" | "top" | "bottom";
 
-export interface HeaderSection {
+// Overall section font-size override. A plain CSS length/size string
+// (e.g. "20px", "1.2rem"); when absent the built-in default size applies.
+export interface SectionFontSizing {
+  readonly fontSize?: string;
+}
+
+// Section-level single-image size override. A plain CSS length string
+// (e.g. "320px", "40%"); when absent the image keeps its default sizing.
+export interface SectionImageSizing {
+  readonly imageWidth?: string;
+  readonly imageHeight?: string;
+}
+
+export interface HeaderSection extends SectionFontSizing {
   readonly type: "header";
   readonly title: string;
   readonly subtitle: string;
   readonly background: string;
 }
 
-export interface HostSection {
+export interface HostSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "text";
   readonly contentType: "host";
   readonly imageOrientation?: ImageOrientation;
@@ -19,7 +32,7 @@ export interface HostSection {
   readonly jobTitle: string;
 }
 
-export interface TextContentSection {
+export interface TextContentSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "text";
   readonly contentType: "text";
   readonly imageOrientation?: ImageOrientation;
@@ -29,7 +42,7 @@ export interface TextContentSection {
   readonly text: string;
 }
 
-export interface BulletPointsSection {
+export interface BulletPointsSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "text";
   readonly contentType: "bulletPoints";
   readonly imageOrientation?: ImageOrientation;
@@ -39,7 +52,7 @@ export interface BulletPointsSection {
   readonly bulletPoints: readonly string[];
 }
 
-export interface NumberPointsSection {
+export interface NumberPointsSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "text";
   readonly contentType: "numberPoints";
   readonly imageOrientation?: ImageOrientation;
@@ -50,7 +63,7 @@ export interface NumberPointsSection {
 }
 
 // Plain HTML-string tiles (e.g. "Tips to enhance your experience").
-export interface TilesSection {
+export interface TilesSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "text";
   readonly contentType: "tiles";
   readonly imageOrientation?: ImageOrientation;
@@ -71,7 +84,7 @@ export interface Tile {
 
 // Character-card tiles (the "Characters" section), distinct from TilesSection
 // because its tiles are objects, not strings.
-export interface ImageTilesSection {
+export interface ImageTilesSection extends SectionFontSizing {
   readonly type: "text";
   readonly contentType: "imageTiles";
   readonly title: string;
@@ -92,7 +105,7 @@ export interface PlaylistItem {
   readonly src: string;
 }
 
-export interface PlaylistSection {
+export interface PlaylistSection extends SectionFontSizing {
   readonly type: "playlist";
   readonly title: string;
   readonly playlist: readonly PlaylistItem[];
@@ -103,20 +116,20 @@ export interface ClipsLessonData {
   readonly terms: string;
 }
 
-export interface ClipsLessonSection {
+export interface ClipsLessonSection extends SectionFontSizing {
   readonly type: "clipslesson";
   readonly title: string;
   readonly clipslesson: ClipsLessonData;
 }
 
-export interface MinigameSection {
+export interface MinigameSection extends SectionFontSizing, SectionImageSizing {
   readonly type: "minigame";
   readonly gameType: string;
   readonly imageOrientation?: ImageOrientation;
   readonly image?: string;
 }
 
-export interface DialoguesSection {
+export interface DialoguesSection extends SectionFontSizing {
   readonly type: "dialogues";
   readonly lines: string;
 }

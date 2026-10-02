@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import ScrollProgressBar from "../components/ScrollProgressBar";
 import SectionRenderer from "../components/SectionRenderer";
 import type { LessonConfig } from "../types/config";
 import styles from "./LessonPage.module.css";
@@ -47,11 +48,14 @@ function LessonPage() {
   }
 
   return (
-    <main className={styles.lessonPage}>
-      {config.map((section, index) => (
-        <SectionRenderer key={`${section.type}-${index}`} section={section} basePath={basePath} />
-      ))}
-    </main>
+    <>
+      <ScrollProgressBar />
+      <main className={styles.lessonPage}>
+        {config.map((section, index) => (
+          <SectionRenderer key={`${section.type}-${index}`} section={section} basePath={basePath} />
+        ))}
+      </main>
+    </>
   );
 }
 

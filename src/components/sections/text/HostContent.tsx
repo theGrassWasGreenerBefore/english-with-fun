@@ -10,11 +10,16 @@ interface HostContentProps {
 
 function HostContent({ section, basePath }: HostContentProps) {
   const image = section.image ? (
-    <img src={resolveAssetPath(basePath, section.image)} alt={section.name} className={styles.hostAvatar} />
+    <img
+      src={resolveAssetPath(basePath, section.image)}
+      alt={section.name}
+      className={styles.hostAvatar}
+      style={{ width: section.imageWidth, height: section.imageHeight }}
+    />
   ) : undefined;
 
   return (
-    <SectionLayout orientation={section.imageOrientation} image={image}>
+    <SectionLayout orientation={section.imageOrientation} image={image} fontSize={section.fontSize}>
       <div className={styles.hostCard}>
         <div className={styles.hostInfo}>
           <p className={styles.hostName}>{section.name}</p>

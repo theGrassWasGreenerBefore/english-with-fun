@@ -15,14 +15,25 @@ function TextContent({ section, basePath }: TextContentProps) {
     images.length > 0 ? (
       <div className={styles.imageStack}>
         {images.map((src) => (
-          <img key={src} src={resolveAssetPath(basePath, src)} alt={section.title} className={styles.sectionImage} />
+          <img
+            key={src}
+            src={resolveAssetPath(basePath, src)}
+            alt={section.title}
+            className={styles.sectionImage}
+            style={{ width: section.imageWidth, height: section.imageHeight }}
+          />
         ))}
       </div>
     ) : undefined;
 
   return (
-    <SectionLayout id={slugify(section.title)} orientation={section.imageOrientation} image={image}>
-      <h2 className={styles.sectionTitle}>{section.title}</h2>
+    <SectionLayout
+      id={slugify(section.title)}
+      title={section.title}
+      orientation={section.imageOrientation}
+      image={image}
+      fontSize={section.fontSize}
+    >
       <div className={styles.sectionText} dangerouslySetInnerHTML={{ __html: section.text }} />
     </SectionLayout>
   );

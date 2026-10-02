@@ -11,16 +11,27 @@ interface TilesContentProps {
 
 function TilesContent({ section, basePath }: TilesContentProps) {
   const image = section.image ? (
-    <img src={resolveAssetPath(basePath, section.image)} alt={section.title} className={styles.sectionImage} />
+    <img
+      src={resolveAssetPath(basePath, section.image)}
+      alt={section.title}
+      className={styles.sectionImage}
+      style={{ width: section.imageWidth, height: section.imageHeight }}
+    />
   ) : undefined;
 
   const items: readonly (string | null)[] =
     section.tiles.length % 2 !== 0 ? [...section.tiles, null] : section.tiles;
+  const gridClass = items.length === 4 ? `${styles.tilesGrid} ${styles.squareBlock}` : styles.tilesGrid;
 
   return (
-    <SectionLayout id={slugify(section.title)} orientation={section.imageOrientation} image={image}>
-      <h2 className={styles.sectionTitle}>{section.title}</h2>
-      <div className={styles.tilesGrid}>
+    <SectionLayout
+      id={slugify(section.title)}
+      title={section.title}
+      orientation={section.imageOrientation}
+      image={image}
+      fontSize={section.fontSize}
+    >
+      <div className={gridClass}>
         {items.map((tile, index) =>
           tile === null ? (
             <div key={`placeholder-${index}`} className={`${styles.tile} ${styles.tilePlaceholder}`} aria-hidden="true" />

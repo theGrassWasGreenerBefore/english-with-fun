@@ -43,7 +43,7 @@
     "contentType": "tiles",
     "title": "Tips to enhance your experience",
     "tiles": [
-      "Below, you'll find several sections with questions. You can discuss them in <strong>any</strong> order (or even skip some!)",
+      "Below, you'll find several sections with questions. You can discuss them in <b>any</b> order (or even skip some!)",
       "<strong>Always</strong> finish your answer with a question to your speaking partners (ex. <i>\"And what about you?\"</i>)",
       "Keep an eye on the <strong>timer</strong> so you have enough time to discuss the most interesting questions.",
       "Assign one member to <strong>share the screen</strong> (This page)."
@@ -207,7 +207,7 @@
     "type": "minigame",
     "gameType": "coin",
     "imageOrientation": "left",
-    "image": "./img/doc/as_per_the_coin.jpg"
+    "image": "./img/as_per_the_coin.jpg"
   },
   {
     "type": "dialogues",

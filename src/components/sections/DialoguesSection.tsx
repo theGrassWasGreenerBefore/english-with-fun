@@ -9,7 +9,7 @@ interface DialoguesSectionProps {
 function DialoguesSection({ section }: DialoguesSectionProps) {
   return (
     <section className={styles.section}>
-      <div className={styles.sectionInner}>
+      <div className={styles.sectionInner} style={{ fontSize: section.fontSize }}>
         <div className={styles.placeholderBox}>Dialogues placeholder ({section.lines})</div>
       </div>
     </section>

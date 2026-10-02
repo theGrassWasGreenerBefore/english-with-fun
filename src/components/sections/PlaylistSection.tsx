@@ -1,25 +1,25 @@
+import { useSectionReveal } from "../../hooks/useSectionReveal";
 import type { PlaylistSection as PlaylistSectionData } from "../../types/config";
 import { slugify } from "../../utils/slugify";
 import styles from "./Section.module.css";
+import SectionTitle from "./SectionTitle";
 
 interface PlaylistSectionProps {
   readonly section: PlaylistSectionData;
 }
 
+// Playlist module is implemented by /skill-video-player; this is layout only.
 function PlaylistSection({ section }: PlaylistSectionProps) {
+  const id = slugify(section.title);
+  const { ref, revealed } = useSectionReveal(id);
+
   return (
-    <section id={slugify(section.title)} className={styles.section}>
-      <div className={styles.sectionInner}>
-        <h2 className={styles.sectionTitle}>{section.title}</h2>
-        <div className={styles.playlist}>
-          {section.playlist.map((item) => (
-            <div key={item.src} className={styles.playlistItem}>
-              <p className={styles.playlistItemTitle}>{item.title}</p>
-              <p className={styles.playlistItemSubtitle}>{item.subtitle}</p>
-              <div className={styles.videoPlaceholder}>Video player placeholder</div>
-            </div>
-          ))}
-        </div>
+    <section className={styles.section}>
+      <div className={styles.sectionInner} style={{ fontSize: section.fontSize }} ref={ref}>
+        <SectionTitle id={id} revealed={revealed}>
+          {section.title}
+        </SectionTitle>
+        <div className={styles.placeholderBox}>Playlist placeholder</div>
       </div>
     </section>
   );
