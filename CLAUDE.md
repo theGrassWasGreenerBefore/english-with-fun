@@ -27,11 +27,7 @@ For full architecture, data formats, and contracts, read @AGENTS.md.
 2. Agent and skill distribution (AGENTS.md + .claude/commands/)
 3. TypeScript interfaces for JSON based on assets
 4. Project structure formation (npm create vite + react-router)
-
-### In Progress
 5. React components (layout)
 6. Video player (vanilla JS)
-
-### Upcoming
 7. Coin mini-game (WebGL)
 8. Integration
