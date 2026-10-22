@@ -172,7 +172,7 @@ Verify the spec displays correctly with all requirements and scenarios.
 - [x] All 8 spec files exist in openspec/changes/migrate-specs-to-openspec/specs/
 - [x] `openspec validate` passes with no critical errors
 - [x] Spec content matches originals (core, skill, workflow)
-- [ ] Specs are archived to openspec/specs/ (durable storage)
+- [x] Specs are archived to openspec/specs/ (durable storage)
 - [x] CLAUDE.md, AGENTS.md, .claude/commands/ updated with references to OpenSpec
 - [x] Commit pushed with change log
-- [ ] No code or active workflows are broken (original files still present, still referenced)
+- [x] No code or active workflows are broken (original files still present, still referenced)
