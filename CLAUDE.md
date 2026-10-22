@@ -31,3 +31,19 @@ For full architecture, data formats, and contracts, read @AGENTS.md.
 6. Video player (vanilla JS)
 7. Coin mini-game (WebGL)
 8. Integration
+
+## Specification Repository
+
+All project specifications are now maintained in OpenSpec:
+- **Core architecture and constraints:** `openspec/specs/core/`
+- **Role-based skill specifications:** `openspec/specs/skill/`
+- **Development workflow:** `openspec/specs/workflow/`
+
+To view specifications:
+```bash
+openspec list --specs
+openspec show "<spec-id>" --type spec
+# Example: openspec show "core/architecture" --type spec
+```
+
+CLAUDE.md and AGENTS.md remain in the repository for reference during the transition period. Going forward, specification changes are made in OpenSpec to maintain them independently from code.

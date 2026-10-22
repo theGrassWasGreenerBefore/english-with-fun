@@ -228,3 +228,16 @@ Package manager — npm. Node.js ≥ 20.
 - When working on a specific module, use the corresponding skill from `.claude/commands/`.
 - Do not load binary assets into the context.
 - Focus on code, types, and contracts.
+
+## 10. OpenSpec Specifications
+
+This document is now superseded by OpenSpec specifications. For the authoritative current specifications, run:
+
+```bash
+openspec list --specs
+openspec show "core/architecture" --type spec
+openspec show "skill/layout" --type spec
+# ... and other spec ids from the list
+```
+
+AGENTS.md remains in the repository for historical reference and as context for AI agents during the transition period. Specification changes are made in OpenSpec (`openspec/specs/`) to maintain them independently from the codebase.
