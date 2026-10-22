@@ -174,5 +174,5 @@ Verify the spec displays correctly with all requirements and scenarios.
 - [x] Spec content matches originals (core, skill, workflow)
 - [ ] Specs are archived to openspec/specs/ (durable storage)
 - [x] CLAUDE.md, AGENTS.md, .claude/commands/ updated with references to OpenSpec
-- [ ] Commit pushed with change log
+- [x] Commit pushed with change log
 - [ ] No code or active workflows are broken (original files still present, still referenced)
