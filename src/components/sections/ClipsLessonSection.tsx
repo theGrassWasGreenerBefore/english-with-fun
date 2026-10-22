@@ -235,7 +235,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
               />
               {current?.kind === "term" && (
                 <div
-                  className={`${styles.clipslessonOverlay} ${styles.clipslessonOverlayClickable}`}
+                  className={`${styles.clipslessonOverlay} ${styles.clipslessonContentClickable}`}
                   onClick={handleNext}
                   role="button"
                   tabIndex={0}
@@ -263,7 +263,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
               )}
               {current?.kind === "startEdge" && (
                 <div
-                  className={`${styles.clipslessonEdgeSlide} ${styles.clipslessonEdgeSlideClickable}`}
+                  className={`${styles.clipslessonEdgeSlide} ${styles.clipslessonContentClickable}`}
                   onClick={handleNext}
                   role="button"
                   tabIndex={0}
