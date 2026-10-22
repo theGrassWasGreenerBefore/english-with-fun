@@ -62,21 +62,24 @@
         "textOrientation": "center-bottom",
         "title": "Gone Girl",
         "subTitle": "The Clue Twist",
-        "id": "GG"
+        "id": "GG",
+        "color": "#1a202c"
       },
       {
         "image": "./img/square/pulp_fiction.jpg",
         "textOrientation": "center-bottom",
         "title": "Pulp Fiction",
         "subTitle": "Sound Illusions",
-        "id": "PF"
+        "id": "PF",
+        "color": "#1a202c"
       },
       {
         "image": "./img/square/mask.jpg",
         "textOrientation": "center-bottom",
         "title": "The Mask",
         "subTitle": "Double Meaning",
-        "id": "MASK"
+        "id": "MASK",
+        "color": "#1a202c"
       }
     ]
   },
