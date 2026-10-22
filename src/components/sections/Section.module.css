@@ -514,3 +514,16 @@
   font-size: 1.75em;
   font-weight: 600;
 }
+
+.clipslessonEdgeSlideClickable {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clipslessonEdgeSlideClickable:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.clipslessonEdgeSlideClickable:active {
+  background-color: rgba(255, 255, 255, 0.12);
+}

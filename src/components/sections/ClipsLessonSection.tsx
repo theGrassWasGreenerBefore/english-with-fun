@@ -256,7 +256,15 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 </div>
               )}
               {current?.kind === "startEdge" && (
-                <div className={styles.clipslessonEdgeSlide}>Let&apos;s begin!</div>
+                <div
+                  className={`${styles.clipslessonEdgeSlide} ${styles.clipslessonEdgeSlideClickable}`}
+                  onClick={handleNext}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && handleNext()}
+                >
+                  Let&apos;s begin!
+                </div>
               )}
               {current?.kind === "endEdge" && (
                 <div className={styles.clipslessonEdgeSlide}>Out of a single scene.</div>

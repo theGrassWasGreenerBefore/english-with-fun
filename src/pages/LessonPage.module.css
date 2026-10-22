@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.closingMessage {
+  text-align: center;
+  font-size: 1.75em;
+  font-style: italic;
+  color: #4a5568;
+  padding: 3rem 1.5rem 4rem;
+}
+
 .status {
   display: flex;
   align-items: center;

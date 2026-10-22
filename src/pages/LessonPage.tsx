@@ -2,11 +2,41 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import SectionRenderer from "../components/SectionRenderer";
+import type { CoinGameConfig } from "../types/coinGame";
 import type { LessonConfig } from "../types/config";
+import { collectAssetPaths } from "../utils/collectAssetPaths";
 import { findCharacterTiles } from "../utils/findCharacterTiles";
+import { preloadAssets, preloadAudio, preloadImage } from "../utils/preloadAssets";
+import { resolveAssetPath } from "../utils/resolveAssetPath";
 import styles from "./LessonPage.module.css";
 
 const DEFAULT_LESSON_ID = "lesson_1";
+
+// Kicks off background preloading as soon as config.json is parsed; runs in
+// parallel with rendering and never blocks it or throws on missing media
+// (see skill/layout "Media assets are preloaded in background").
+function preloadLessonMedia(config: LessonConfig, basePath: string): void {
+  const { images, videos } = collectAssetPaths(config);
+  preloadAssets(
+    images.map((path) => resolveAssetPath(basePath, path)),
+    videos.map((path) => resolveAssetPath(basePath, path)),
+  );
+
+  for (const section of config) {
+    if (section.type !== "minigame") continue;
+    const gameBasePath = `${import.meta.env.BASE_URL}assets/minigame/${section.gameType}/`;
+    fetch(`${gameBasePath}gameConfig.json`)
+      .then((response) => (response.ok ? (response.json() as Promise<CoinGameConfig>) : null))
+      .then((gameConfig) => {
+        if (!gameConfig) return;
+        preloadImage(resolveAssetPath(gameBasePath, gameConfig.texture));
+        preloadAudio(resolveAssetPath(gameBasePath, gameConfig.sound));
+      })
+      .catch(() => {
+        // Missing minigame assets during development are expected; ignore.
+      });
+  }
+}
 
 function LessonPage() {
   const params = useParams();
@@ -30,6 +60,7 @@ function LessonPage() {
       })
       .then((data) => {
         if (!cancelled) setConfig(data);
+        if (!cancelled) preloadLessonMedia(data, basePath);
       })
       .catch((err: unknown) => {
         if (!cancelled) setError(err instanceof Error ? err.message : "Unknown error");
@@ -85,6 +116,7 @@ function LessonContent({
             characters={characters}
           />
         ))}
+        <p className={styles.closingMessage}>That&apos;s all, folks!</p>
       </main>
     </>
   );
