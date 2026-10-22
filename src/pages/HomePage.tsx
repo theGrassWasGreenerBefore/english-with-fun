@@ -6,7 +6,10 @@ interface LessonLink {
   readonly title: string;
 }
 
-const LESSONS: readonly LessonLink[] = [{ id: "lesson_1", title: "Lesson 1" }];
+const LESSONS: readonly LessonLink[] = [
+  { id: "lesson_1", title: "Lesson 1" },
+  { id: "lesson_2", title: "Lesson 2: Lost in Translation" },
+];
 
 function HomePage() {
   return (
