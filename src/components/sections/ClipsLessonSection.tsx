@@ -228,19 +228,19 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
               />
             </div>
 
-            <div className={styles.clipslessonContent}>
+            <div
+              className={styles.clipslessonContent}
+              onClick={current?.kind === "term" || current?.kind === "startEdge" ? handleNext : undefined}
+              role={current?.kind === "term" || current?.kind === "startEdge" ? "button" : undefined}
+              tabIndex={current?.kind === "term" || current?.kind === "startEdge" ? 0 : undefined}
+              onKeyDown={current?.kind === "term" || current?.kind === "startEdge" ? (e) => e.key === "Enter" && handleNext() : undefined}
+            >
               <div
                 ref={mountRef}
                 className={`${styles.clipslessonPlayerMount} ${showPlayer ? "" : styles.clipslessonPlayerHidden}`}
               />
               {current?.kind === "term" && (
-                <div
-                  className={`${styles.clipslessonOverlay} ${styles.clipslessonContentClickable}`}
-                  onClick={handleNext}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleNext()}
-                >
+                <div className={styles.clipslessonOverlay}>
                   <div className={styles.clipslessonOverlayContent}>
                     <h3
                       className={styles.clipslessonOverlayTitle}
@@ -262,13 +262,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 </div>
               )}
               {current?.kind === "startEdge" && (
-                <div
-                  className={`${styles.clipslessonEdgeSlide} ${styles.clipslessonContentClickable}`}
-                  onClick={handleNext}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleNext()}
-                >
+                <div className={styles.clipslessonEdgeSlide}>
                   Let&apos;s begin!
                 </div>
               )}

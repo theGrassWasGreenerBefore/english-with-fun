@@ -446,16 +446,8 @@
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.clipslessonContentClickable {
+.clipslessonContent[role="button"] {
   cursor: pointer;
-}
-
-.clipslessonContentClickable:hover {
-  opacity: 0.95;
-}
-
-.clipslessonContentClickable:active {
-  opacity: 0.9;
 }
 
 .clipslessonPlayerMount {
