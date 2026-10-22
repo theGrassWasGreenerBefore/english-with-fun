@@ -465,6 +465,19 @@
   background: linear-gradient(to right, transparent, rgba(15, 22, 32, 0.92) 25%, rgba(15, 22, 32, 0.92) 100%);
 }
 
+.clipslessonOverlayClickable {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clipslessonOverlayClickable:hover {
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 100%);
+}
+
+.clipslessonOverlayClickable:active {
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12) 25%, rgba(255, 255, 255, 0.12) 100%);
+}
+
 /* Fills the overlay's full height so translateY(-20%) below resolves against
    the video block's own height, not the (shorter) content's intrinsic height. */
 .clipslessonOverlayContent {

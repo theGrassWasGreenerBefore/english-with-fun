@@ -234,7 +234,13 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 className={`${styles.clipslessonPlayerMount} ${showPlayer ? "" : styles.clipslessonPlayerHidden}`}
               />
               {current?.kind === "term" && (
-                <div className={styles.clipslessonOverlay}>
+                <div
+                  className={`${styles.clipslessonOverlay} ${styles.clipslessonOverlayClickable}`}
+                  onClick={handleNext}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && handleNext()}
+                >
                   <div className={styles.clipslessonOverlayContent}>
                     <h3
                       className={styles.clipslessonOverlayTitle}
