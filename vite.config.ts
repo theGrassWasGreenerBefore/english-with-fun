@@ -5,4 +5,5 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   base: '/english-with-fun/',
+  publicDir: 'public',
 })
