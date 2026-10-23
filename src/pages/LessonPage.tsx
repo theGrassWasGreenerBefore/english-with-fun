@@ -96,6 +96,12 @@ function LessonContent({
   characters: ReturnType<typeof findCharacterTiles>;
 }) {
   useEffect(() => {
+    const headerSection = config.find((s) => s.type === "header");
+    const title = headerSection && "title" in headerSection ? headerSection.title : "English with Fun";
+    document.title = `${title} | English with Fun`;
+  }, [config]);
+
+  useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
     const frame = requestAnimationFrame(() => {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
 import styles from "./HomePage.module.css";
 
@@ -12,6 +13,9 @@ const LESSONS: readonly LessonLink[] = [
 ];
 
 function HomePage() {
+  useEffect(() => {
+    document.title = "English with Fun";
+  }, []);
   return (
     <main className={styles.homePage}>
       <h1 className={styles.title}>English with Fun</h1>
