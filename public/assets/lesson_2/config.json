@@ -2,7 +2,7 @@
   {
     "type": "header",
     "title": "Lost in Translation",
-    "subtitle": "Why English Wordplay Breaks in Movies",
+    "subtitle": "Wordplay in Movies",
     "background": "../common/img/header_background.jpg"
   },
   {
@@ -19,67 +19,64 @@
     "imageOrientation": "top",
     "image": "./img/posters.jpg",
     "contentType": "text",
-    "title": "Titles Are Already a Trap",
-    "text": "Take a look at these two posters. The first one is <b>Last Action Hero</b>. In English, this title has two meanings at the same time: the <b>last</b> action hero — like, the final one of his kind, or the hero of the <b>latest</b> action movie. Your brain reads both meanings at once. It's clever. But when you translate it, you have to pick just one. And the trick is gone."
-  },
-  {
-    "type": "text",
-    "imageOrientation": "top",
-    "image": "./img/dark_knight.jpg",
-    "contentType": "text",
-    "title": "The Sound Joke",
-    "text": "The second one is <b>The Dark Knight</b>. Say it out loud. Now listen: it sounds exactly like <b>The Dark Night</b>. 'Knight' and 'Night' — same sound, different meaning. It's a sound joke hidden in the title. You can't hear it, and you can't translate it."
+    "title": "It may begin with the title",
+    "text": "Take a look at these two posters.<br />The first one is <b>Last Action Hero</b> has two meanings at the same time: the <b>last</b> action hero — like, the final one of his kind, or the hero of the <b>latest</b> action movie. But when you translate it, you have to pick just one.<br /><br />The second one is <b>The Dark Knight</b>. Say it out loud: it sounds exactly like <b>The Dark Night</b>. You can't hear it, and you can't translate it."
   },
   {
     "type": "text",
     "contentType": "numberPoints",
-    "imageOrientation": "top",
-    "image": "./img/wordplay_types.jpg",
     "title": "Wordplay Tricks in Movies",
     "subTitle": "Four main categories.",
     "numberPoints": [
       "<b>The Idiom Twist:</b> An idiom suddenly becomes literal.",
       "<b>The Sound Illusion:</b> Homophones or rhyming words create a joke.",
       "<b>The Visual Play:</b> The meaning changes based on what you see.",
+      "<b>Cultural references:</b> Inner market movies, shows and commercials.",
       "<b>The Grammatical Shift:</b> One word acts as different parts of speech."
     ]
   },
   {
+    "type": "playlist",
+    "title": "Movies",
+    "playlist": [
+      {
+        "title": "IDIOM TWIST",
+        "subtitle": "Gone girl (2014)",
+        "src": "./video/gone_girl.mp4"
+      },
+      {
+        "title": "SOUND ILLUSION",
+        "subtitle": "Pulp fiction (1994)",
+        "src": "./video/pulp.mp4"
+      },
+      {
+        "title": "VISUAL PLAY",
+        "subtitle": "The Mask (1994)",
+        "src": "./video/mask.mp4"
+      }
+    ]
+  },
+  {
     "type": "clipslesson",
-    "title": "Scene Breakdown: Gone Girl, Pulp Fiction, and The Mask",
+    "title": "Cultural references",
     "clipslesson": {
-      "sourceVideo": "./video/clipslesson.mp4",
+      "sourceVideo": "./video/friends.mp4",
       "terms": "./terms.json"
     }
   },
   {
-    "type": "text",
-    "contentType": "imageTiles",
-    "title": "Movies Mentioned",
-    "tiles": [
+    "type": "playlist",
+    "title": "Grammatical shift",
+    "playlist": [
       {
-        "image": "./img/square/gone_girl.jpg",
-        "textOrientation": "center-bottom",
-        "title": "Gone Girl",
-        "subTitle": "The Clue Twist",
-        "id": "GG",
-        "color": "#1a202c"
+        "title": "ARTICLES",
+        "subtitle": "Gift vs. Now",
+        "src": "./video/tbbt_present.mp4"
       },
       {
-        "image": "./img/square/pulp_fiction.jpg",
-        "textOrientation": "center-bottom",
-        "title": "Pulp Fiction",
-        "subTitle": "Sound Illusions",
-        "id": "PF",
-        "color": "#1a202c"
-      },
-      {
-        "image": "./img/square/mask.jpg",
-        "textOrientation": "center-bottom",
-        "title": "The Mask",
-        "subTitle": "Double Meaning",
-        "id": "MASK",
-        "color": "#1a202c"
+        "title": "CAPITALS",
+        "subtitle": "Product vs. Nationality",
+        "src": "./video/tbbt_polish.mp4"
       }
     ]
   },
@@ -87,14 +84,14 @@
     "type": "text",
     "contentType": "numberPoints",
     "imageOrientation": "top",
-    "image": "./img/translation_challenge.jpg",
+    "image": "./img/oogway_present.jpg",
     "title": "Why Translation Fails",
     "subTitle": "The core problem.",
     "numberPoints": [
       "Wordplay is based on the <b>English language itself</b>: sounds, grammar, or cultural references.",
       "When you translate to another language, the words change, and the joke disappears.",
       "A translator has to pick just <b>one meaning</b>, killing the clever ambiguity.",
-      "The visual or sound illusion only works in English."
+      "The visual or sound illusion only works in the original."
     ]
   },
   {
@@ -103,9 +100,17 @@
     "title": "The Bottom Line",
     "bulletPoints": [
       "Watching movies in the original language lets you catch jokes that die in translation.",
-      "American humor is not 'dumb'—it's based on linguistic cleverness.",
+      "American humor is not always 'dumb' — it's sometimes based on linguistic twists.",
       "This is why going back to movies you've seen before is so valuable.",
-      "The more English you understand, the more layers of humor you discover."
+      "The more English you understand, the more layers of humor you discover.<br />(and the other way around)"
+    ]
+  },
+  {
+    "type": "text",
+    "contentType": "text",
+    "title": "Your cases of late realizations?",
+    "text": [
+      "Please share your experience on whether you had twists about learning some new meanings watching old movies or shows in English."
     ]
   }
 ]

@@ -3,40 +3,49 @@
     {
       "id": "0",
       "start": "0:00",
-      "end": "0:15"
+      "end": "0:23"
     },
     {
       "id": "1",
-      "start": "0:15",
-      "end": "0:30"
+      "start": "0:24",
+      "end": "0:33"
     },
     {
       "id": "2",
-      "start": "0:30",
-      "end": "0:45"
+      "start": "0:33",
+      "end": "0:40"
     }
   ],
   "terms": [
     {
       "sequenceId": "0",
-      "term": "Have a clue",
+      "term": "Mascots",
       "stillframe": "0:15",
-      "framingXOffset": 0,
-      "definition": "to understand something or know what's happening.<br />But here it becomes literal: a physical envelope labeled 'Clue'."
+      "framingXOffset": 25,
+      "definition": "Internal market commercial references",
+      "image": "./img/mascots.jpg"
+    },
+    {
+      "sequenceId": "0",
+      "term": "Nuts",
+      "stillframe": "0:22",
+      "framingXOffset": 25,
+      "definition": "among the food item NUTS also means CRAZY"
     },
     {
       "sequenceId": "1",
-      "term": "Homophone",
-      "stillframe": "0:30",
-      "framingXOffset": 0,
-      "definition": "words that sound exactly the same but have different meanings.<br />The humor in American comedy often relies on sound illusions like this."
+      "term": "Boogie song",
+      "stillframe": "0:31",
+      "framingXOffset": 25,
+      "definition": "",
+      "image": "./img/get_down_4_3.jpg"
     },
     {
       "sequenceId": "2",
-      "term": "Miss (two meanings)",
-      "stillframe": "0:45",
-      "framingXOffset": 0,
-      "definition": "to fail to hit a target (context: flying bullets)<br />to feel sad someone is gone (context: his playful tone).<br />The joke only works because the visual and tone activate both at once."
+      "term": "Ring",
+      "stillframe": "0:38",
+      "framingXOffset": 25,
+      "definition": "Verb vs. Noun"
     }
   ]
 }
