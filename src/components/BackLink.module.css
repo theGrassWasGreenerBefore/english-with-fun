@@ -1,0 +1,17 @@
+
+.lessonLink {
+  display: block;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  color: #1a202c;
+  background: #dde6f0;
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+}

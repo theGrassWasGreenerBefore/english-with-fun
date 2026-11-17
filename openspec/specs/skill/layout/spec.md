@@ -209,3 +209,18 @@ Upon lesson page load, React SHALL begin background preloading of all media asse
 #### Scenario: Preload does not block rendering
 - **WHEN** a page has 5 sections with heavy media (multiple videos and images)
 - **THEN** the page renders all sections immediately; preloading happens silently in the background without delays
+
+### Requirement: Every lesson page has a fixed back link to navigate to the lessons list
+Every lesson page has a simple way to navigate back to the list.
+
+#### Scenario: Back link rendered
+- **WHEN** the lesson page initially rendered
+- **THEN** the obvious back link is rendered
+
+#### Scenario: Back link is always visible
+- **WHEN** a user scrolls the page
+- **THEN** the Back link is visible on the same spot of viewport upon the rest of the content
+
+#### Scenario: User navigates to the lessons list
+- **WHEN** a user clicks the link
+- **THEN** a user navigates to the main page with the list of lessons

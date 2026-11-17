@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import BackLink from "../components/BackLink";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import SectionRenderer from "../components/SectionRenderer";
 import type { CoinGameConfig } from "../types/coinGame";
@@ -124,6 +125,7 @@ function LessonContent({
         ))}
         <p className={styles.closingMessage}>That&apos;s all, folks!</p>
       </main>
+      <BackLink />
     </>
   );
 }
