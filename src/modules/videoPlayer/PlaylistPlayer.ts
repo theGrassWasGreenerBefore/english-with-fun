@@ -14,6 +14,8 @@ export interface PlaylistPlayerConfig {
 
 const DEFAULT_VOLUME = 0.75;
 const SEEK_RANGE_MAX = 1000;
+const VOLUME_STEP = 0.1;
+const SEEK_STEP = 5;
 
 const ICON_PREV = '<svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM18 6 9.5 12 18 18Z"/></svg>';
 const ICON_NEXT = '<svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18Z"/></svg>';
@@ -90,6 +92,9 @@ export class PlaylistPlayer implements EmbeddableModule<PlaylistPlayerConfig> {
 
     const videoCol = document.createElement("div");
     videoCol.className = "vp-playlist__video-col";
+    videoCol.tabIndex = 0;
+    videoCol.setAttribute("role", "group");
+    videoCol.setAttribute("aria-label", "Video player");
     this.videoCol = videoCol;
 
     const stage = document.createElement("div");
@@ -185,6 +190,8 @@ export class PlaylistPlayer implements EmbeddableModule<PlaylistPlayerConfig> {
     if (!signal || !video) return;
 
     this.stage?.addEventListener("click", () => this.togglePause(), { signal });
+    this.stage?.addEventListener("pointerdown", () => this.videoCol?.focus(), { signal });
+    this.videoCol?.addEventListener("keydown", (event) => this.handleKeydown(event), { signal });
     this.toggleBtn?.addEventListener("click", () => this.togglePause(), { signal });
     this.prevBtn?.addEventListener("click", () => this.skip(-1), { signal });
     this.nextBtn?.addEventListener("click", () => this.skip(1), { signal });
@@ -213,6 +220,83 @@ export class PlaylistPlayer implements EmbeddableModule<PlaylistPlayerConfig> {
     if (!video) return;
     if (video.paused) void video.play().catch((error: unknown) => console.error("PlaylistPlayer: play failed", error));
     else video.pause();
+  }
+
+  // Keyboard shortcuts are active while focus is anywhere inside the player.
+  // Arrows on a focused range input are left to the native slider behavior,
+  // and Space/Enter on a focused button are left to its native activation.
+  private handleKeydown(event: KeyboardEvent): void {
+    const tagName = event.target instanceof HTMLElement ? event.target.tagName : "";
+    if (tagName === "BUTTON" && (event.key === " " || event.key === "Enter")) return;
+    if (
+      tagName === "INPUT" &&
+      (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight")
+    ) {
+      return;
+    }
+
+    switch (event.key) {
+      case " ":
+        event.preventDefault();
+        if (!event.repeat) this.togglePause();
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        this.changeVolume(VOLUME_STEP);
+        break;
+      case "ArrowDown":
+        event.preventDefault();
+        this.changeVolume(-VOLUME_STEP);
+        break;
+      case "ArrowRight":
+        event.preventDefault();
+        this.seekBy(SEEK_STEP);
+        break;
+      case "ArrowLeft":
+        event.preventDefault();
+        this.seekBy(-SEEK_STEP);
+        break;
+      case "PageDown":
+        event.preventDefault();
+        if (!event.repeat) this.skip(1);
+        break;
+      case "PageUp":
+        event.preventDefault();
+        if (!event.repeat) this.skip(-1);
+        break;
+    }
+  }
+
+  private changeVolume(delta: number): void {
+    const video = this.video;
+    if (!video) return;
+    const volume = Math.min(1, Math.max(0, video.volume + delta));
+    video.volume = volume;
+    if (this.volumeRange) this.volumeRange.value = String(Math.round(volume * 100));
+  }
+
+  private seekBy(delta: number): void {
+    const video = this.video;
+    if (!video) return;
+    const { duration } = video;
+    if (!Number.isFinite(duration) || duration <= 0) return;
+
+    const target = video.currentTime + delta;
+    if (target <= 0) {
+      video.currentTime = 0;
+      return;
+    }
+    if (target >= duration) {
+      // Equivalent to reaching the end of the video: auto-advance the
+      // playlist, or stop at the end when this is the last item.
+      if (this.currentIndex + 1 < this.items.length) this.handleEnded();
+      else {
+        video.currentTime = duration;
+        video.pause();
+      }
+      return;
+    }
+    video.currentTime = target;
   }
 
   private skip(direction: 1 | -1): void {

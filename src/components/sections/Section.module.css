@@ -437,6 +437,15 @@
   width: 7rem;
 }
 
+.clipslessonPlayer {
+  width: 100%;
+}
+
+.clipslessonPlayer:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
 .clipslessonContent {
   position: relative;
   width: 100%;
@@ -446,7 +455,7 @@
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.clipslessonContent[role="button"] {
+.clipslessonContentClickable {
   cursor: pointer;
 }
 

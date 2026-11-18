@@ -156,6 +156,38 @@ In playlist mode, clicking on the video toggles between pause and unpause, emitt
 - **WHEN** video is paused and user clicks on it
 - **THEN** video unpauses and `unpaused` event is emitted
 
+### Requirement: Keyboard controls while the player is focused
+The player exposes a focusable region that accepts keyboard shortcuts. Native behavior is preserved for arrow keys on a focused range input and for Space/Enter on a focused button.
+
+In playlist mode (regular player and playlist):
+- ArrowUp / ArrowDown: increase / decrease volume by 10%
+- Space: toggle play/pause according to the current state
+- ArrowRight / ArrowLeft: seek forward / backward by 5 seconds
+- PageDown / PageUp: same as the next / previous UI button (no-op at the playlist boundaries)
+
+In clipslesson mode (headless player driven by React):
+- ArrowUp / ArrowDown: increase / decrease volume by 10%
+- Space: pause/resume according to the current state; on the start screen it starts the first clip (same as clicking the player area)
+- ArrowRight / PageDown: same as the next UI arrow (no-op at the sequence end or while a still-frame transition is in progress)
+- ArrowLeft / PageUp: same as the previous UI arrow (no-op at the sequence start or while a still-frame transition is in progress)
+- On the start screen, ArrowRight, PageDown, and Space are equivalent to clicking the main player area ("Let's begin!")
+
+#### Scenario: Volume via keyboard
+- **WHEN** the player is focused and the user presses ArrowUp
+- **THEN** volume increases by 10% and the volume control reflects the change
+
+#### Scenario: Seek past the beginning
+- **WHEN** the user presses ArrowLeft and the target time is before the video start
+- **THEN** the video is positioned at its beginning
+
+#### Scenario: Seek past the end
+- **WHEN** the user presses ArrowRight and the target time is past the video end
+- **THEN** playback ends as if the video reached its end (playlist auto-advances, or stops on the last item)
+
+#### Scenario: Start screen
+- **WHEN** clipslesson is on the start screen and the user presses Space
+- **THEN** the first clip starts playing
+
 ### Requirement: No React imports; no terms.json logic
 The player does NOT import React. It does NOT read or understand terms.json. It does NOT compute active sequences or terms. It is purely a media playback engine with API and events.
 

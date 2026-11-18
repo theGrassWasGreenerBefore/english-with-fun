@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, KeyboardEvent, PointerEvent } from "react";
 import { HeadlessPlayer } from "../../modules/videoPlayer/HeadlessPlayer";
 import type { ClipsLessonSection as ClipsLessonSectionData } from "../../types/config";
 import type { Sequence, Term, TermsData } from "../../types/terms";
@@ -15,6 +15,7 @@ const ICON_PLAY = '<svg viewBox="0 0 24 24"><path d="M8 6l10 6-10 6Z"/></svg>';
 const ICON_PAUSE = '<svg viewBox="0 0 24 24"><path d="M7 6h3v12H7zM14 6h3v12h-3z"/></svg>';
 
 const DEFAULT_VOLUME = 75;
+const VOLUME_STEP = 10;
 
 type Entity =
   | { readonly kind: "startEdge" }
@@ -56,8 +57,10 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
   const [entityIndex, setEntityIndex] = useState(0);
   const [playState, setPlayState] = useState<"playing" | "paused">("playing");
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
 
   const mountRef = useRef<HTMLDivElement>(null);
+  const volumeRef = useRef(DEFAULT_VOLUME);
   const playerRef = useRef<HeadlessPlayer | null>(null);
   const entitiesRef = useRef<readonly Entity[]>([]);
   const entityIndexRef = useRef(0);
@@ -123,7 +126,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
     playerRef.current = player;
     void player
       .init(container, { sourceVideo: resolveAssetPath(basePath, section.clipslesson.sourceVideo) })
-      .then(() => player.setVolume(DEFAULT_VOLUME));
+      .then(() => player.setVolume(volumeRef.current));
 
     const handleSequenceOver = () => {
       const index = entityIndexRef.current;
@@ -168,14 +171,75 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
     else player.unpause();
   }
 
+  function applyVolume(percent: number): void {
+    const next = Math.min(100, Math.max(0, percent));
+    volumeRef.current = next;
+    setVolume(next);
+    playerRef.current?.setVolume(next);
+  }
+
   function handleVolumeChange(event: ChangeEvent<HTMLInputElement>): void {
-    playerRef.current?.setVolume(Number(event.target.value));
+    applyVolume(Number(event.target.value));
   }
 
   const prevDisabled = !current || current.kind === "startEdge" || isTransitioning;
   const nextDisabled = !current || current.kind === "endEdge" || isTransitioning;
   const pauseDisabled = !current || current.kind !== "sequence" || isTransitioning;
   const showPlayer = current?.kind === "sequence" || current?.kind === "term";
+  const clickable = current?.kind === "term" || current?.kind === "startEdge";
+
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>): void {
+    const target = event.target;
+    if (target instanceof HTMLElement && target.closest("input, button")) return;
+    event.currentTarget.focus();
+  }
+
+  // Keyboard shortcuts are active while focus is anywhere inside the player.
+  // Arrows on a focused range input are left to the native slider behavior,
+  // and Space/Enter on a focused button are left to its native activation.
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>): void {
+    const tagName = event.target instanceof HTMLElement ? event.target.tagName : "";
+    if (tagName === "BUTTON" && (event.key === " " || event.key === "Enter")) return;
+    if (
+      tagName === "INPUT" &&
+      (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight")
+    ) {
+      return;
+    }
+
+    switch (event.key) {
+      case " ":
+        event.preventDefault();
+        if (event.repeat) return;
+        if (current?.kind === "startEdge") handleNext();
+        else if (current?.kind === "sequence") handlePauseToggle();
+        return;
+      case "ArrowUp":
+        event.preventDefault();
+        applyVolume(volumeRef.current + VOLUME_STEP);
+        return;
+      case "ArrowDown":
+        event.preventDefault();
+        applyVolume(volumeRef.current - VOLUME_STEP);
+        return;
+      case "ArrowRight":
+      case "PageDown":
+        event.preventDefault();
+        if (!event.repeat && !nextDisabled) handleNext();
+        return;
+      case "ArrowLeft":
+      case "PageUp":
+        event.preventDefault();
+        if (!event.repeat && !prevDisabled) handlePrev();
+        return;
+      case "Enter":
+        if (current?.kind === "term" || current?.kind === "startEdge") {
+          event.preventDefault();
+          handleNext();
+        }
+        return;
+    }
+  }
 
   return (
     <section className={styles.section}>
@@ -188,7 +252,14 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
         {!error && !data && <p className={styles.sectionText}>Loading clips lesson…</p>}
 
         {data && (
-          <>
+          <div
+            className={styles.clipslessonPlayer}
+            tabIndex={0}
+            role="group"
+            aria-label="Video player"
+            onKeyDown={handleKeyDown}
+            onPointerDown={handlePointerDown}
+          >
             <div className={styles.clipslessonNav}>
               <button
                 type="button"
@@ -222,18 +293,15 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 className={styles.clipslessonVolume}
                 min={0}
                 max={100}
-                defaultValue={DEFAULT_VOLUME}
+                value={volume}
                 aria-label="Volume"
                 onChange={handleVolumeChange}
               />
             </div>
 
             <div
-              className={styles.clipslessonContent}
-              onClick={current?.kind === "term" || current?.kind === "startEdge" ? handleNext : undefined}
-              role={current?.kind === "term" || current?.kind === "startEdge" ? "button" : undefined}
-              tabIndex={current?.kind === "term" || current?.kind === "startEdge" ? 0 : undefined}
-              onKeyDown={current?.kind === "term" || current?.kind === "startEdge" ? (e) => e.key === "Enter" && handleNext() : undefined}
+              className={`${styles.clipslessonContent} ${clickable ? styles.clipslessonContentClickable : ""}`}
+              onClick={clickable ? handleNext : undefined}
             >
               <div
                 ref={mountRef}
@@ -270,7 +338,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 <div className={styles.clipslessonEdgeSlide}>Out of a single scene.</div>
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </section>
