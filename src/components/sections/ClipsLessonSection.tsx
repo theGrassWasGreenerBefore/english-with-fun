@@ -13,6 +13,8 @@ const ICON_PREV = '<svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM18 6 9.5 12 18
 const ICON_NEXT = '<svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18Z"/></svg>';
 const ICON_PLAY = '<svg viewBox="0 0 24 24"><path d="M8 6l10 6-10 6Z"/></svg>';
 const ICON_PAUSE = '<svg viewBox="0 0 24 24"><path d="M7 6h3v12H7zM14 6h3v12h-3z"/></svg>';
+const ICON_FULLSCREEN =
+  '<svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg>';
 
 const DEFAULT_VOLUME = 75;
 const VOLUME_STEP = 10;
@@ -60,6 +62,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
   const [volume, setVolume] = useState(DEFAULT_VOLUME);
 
   const mountRef = useRef<HTMLDivElement>(null);
+  const playerWrapperRef = useRef<HTMLDivElement>(null);
   const volumeRef = useRef(DEFAULT_VOLUME);
   const playerRef = useRef<HeadlessPlayer | null>(null);
   const entitiesRef = useRef<readonly Entity[]>([]);
@@ -182,6 +185,16 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
     applyVolume(Number(event.target.value));
   }
 
+  function handleFullscreenToggle(): void {
+    const target = playerWrapperRef.current;
+    if (!target) return;
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else
+      void target
+        .requestFullscreen()
+        .catch((error: unknown) => console.error("ClipsLessonSection: fullscreen failed", error));
+  }
+
   const prevDisabled = !current || current.kind === "startEdge" || isTransitioning;
   const nextDisabled = !current || current.kind === "endEdge" || isTransitioning;
   const pauseDisabled = !current || current.kind !== "sequence" || isTransitioning;
@@ -253,6 +266,7 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
 
         {data && (
           <div
+            ref={playerWrapperRef}
             className={styles.clipslessonPlayer}
             tabIndex={0}
             role="group"
@@ -296,6 +310,14 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                 value={volume}
                 aria-label="Volume"
                 onChange={handleVolumeChange}
+              />
+              <button
+                type="button"
+                className={styles.clipslessonNavBtn}
+                aria-label="Fullscreen"
+                title="Fullscreen"
+                onClick={handleFullscreenToggle}
+                dangerouslySetInnerHTML={{ __html: ICON_FULLSCREEN }}
               />
             </div>
 

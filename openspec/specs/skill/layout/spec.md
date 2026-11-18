@@ -140,12 +140,16 @@ A playlist section renders two columns: 75% video block, 25% playlist sidebar. T
 - **WHEN** user clicks a playlist item
 - **THEN** that video starts playing from the beginning; volume persists
 
-### Requirement: clipslesson section renders navigation, volume, video, and term overlay
-A clipslesson section renders a control bar (nav buttons, pause, volume) at the top, the video player below, and a term overlay on the right when a term is active. React loads terms.json and computes active sequence/term by currentTime.
+### Requirement: clipslesson section renders navigation, volume, fullscreen, video, and term overlay
+A clipslesson section renders a control bar (nav buttons, pause, volume, fullscreen) at the top, the video player below, and a term overlay on the right when a term is active. React loads terms.json and computes active sequence/term by currentTime.
 
 #### Scenario: clipslesson layout
 - **WHEN** a clipslesson section loads
-- **THEN** nav bar at top with prev/next/pause/volume; video player below; term card on right when term is active
+- **THEN** nav bar at top with prev/next/pause/volume/fullscreen; video player below; term card on right when term is active
+
+#### Scenario: clipslesson fullscreen
+- **WHEN** user clicks the fullscreen button in the clipslesson control bar
+- **THEN** the player (control bar + video) enters fullscreen; Escape or the button exits fullscreen
 
 #### Scenario: Term navigation
 - **WHEN** user clicks next
