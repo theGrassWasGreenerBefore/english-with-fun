@@ -319,12 +319,14 @@ function ClipsLessonSection({ section, basePath }: ClipsLessonSectionProps) {
                       dangerouslySetInnerHTML={{ __html: current.term.definition }}
                     />
                     {current.term.image && (
-                      <img
-                        key={current.term.image}
-                        className={styles.clipslessonOverlayImage}
-                        src={resolveAssetPath(basePath, current.term.image)}
-                        alt={current.term.term}
-                      />
+                      <div className={styles.clipslessonOverlayMedia}>
+                        <img
+                          key={current.term.image}
+                          className={styles.clipslessonOverlayImage}
+                          src={resolveAssetPath(basePath, current.term.image)}
+                          alt={current.term.term}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>

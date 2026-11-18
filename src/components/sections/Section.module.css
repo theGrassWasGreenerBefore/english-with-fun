@@ -476,10 +476,21 @@
   width: 53%;
   overflow: hidden;
   background: linear-gradient(to right, transparent, rgba(15, 22, 32, 0.92) 25%, rgba(15, 22, 32, 0.92) 100%);
+  /* Matches the still-frame's leftward transition in HeadlessPlayer.css. */
+  animation: clipslessonOverlayFadeIn 0.4s ease;
 }
 
-/* Fills the overlay's full height so translateY(-20%) below resolves against
-   the video block's own height, not the (shorter) content's intrinsic height. */
+@keyframes clipslessonOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Centers the term card in the full overlay height. Overflow stays symmetric,
+   so dense content is not pushed past the top edge. */
 .clipslessonOverlayContent {
   position: absolute;
   inset: 0;
@@ -491,7 +502,6 @@
   padding: 1.5rem 1.25rem;
   text-align: center;
   color: #fff;
-  transform: translateY(-10%);
 }
 
 .clipslessonOverlayTitle {
@@ -507,11 +517,23 @@
   color: #fff;
 }
 
+/* Reserves the image's space regardless of whether it has loaded yet, so the
+   centered text does not shift when the image appears. Shrinks when the text
+   would otherwise push the content past the overlay's top edge. */
+.clipslessonOverlayMedia {
+  flex: 0 1 37%;
+  min-height: 0;
+  width: 100%;
+  margin-top: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .clipslessonOverlayImage {
   max-width: 100%;
-  max-height: 37%;
+  max-height: 100%;
   object-fit: contain;
-  margin-top: 3em;
   border-radius: 0.25rem;
 }
 
